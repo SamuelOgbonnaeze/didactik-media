@@ -40,9 +40,9 @@ export default function Home() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="min-h-screen flex items-center bg-gradient-to-b from-white to-bg-alt"
+        className="py-20 md:py-32 bg-gradient-to-b from-white to-bg-alt flex items-center"
       >
-        <div className="container py-20">
+        <div className="container">
           <div className="max-w-4xl">
             <motion.h1
               variants={itemVariants}
@@ -72,7 +72,7 @@ export default function Home() {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 mb-12"
+              className="flex flex-wrap gap-4 mb-10"
             >
               <Link to="/our-work" className="cta-button">
                 Learn About Our Work
@@ -107,15 +107,15 @@ export default function Home() {
       </motion.section>
 
       {/* Value Propositions */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
                 className="card hover:border-primary/20"
               >

@@ -46,12 +46,12 @@ export default function Contact() {
   return (
     <div>
       {/* Header */}
-      <section className="py-24 bg-gradient-to-b from-bg-alt to-white">
+      <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-serif font-bold mb-6"
+            className="text-5xl md:text-6xl font-serif font-bold mb-4"
           >
             Secure Your Legacy.
           </motion.h1>
@@ -59,9 +59,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -69,14 +69,14 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-6">
+              <h2 className="text-3xl font-serif font-bold mb-4">
                 Get In Touch
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-1"
                   >
                     Name *
                   </label>
@@ -87,14 +87,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="organization"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-1"
                   >
                     Organization *
                   </label>
@@ -105,14 +105,14 @@ export default function Contact() {
                     value={formData.organization}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-1"
                   >
                     Email *
                   </label>
@@ -123,14 +123,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-1"
                   >
                     Message *
                   </label>
@@ -141,7 +141,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all resize-none"
                   />
                 </div>
 
@@ -150,7 +150,7 @@ export default function Contact() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full cta-button disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full cta-button disabled:opacity-50 disabled:cursor-not-allowed mt-2"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </motion.button>
@@ -174,7 +174,7 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-6">
+              <h2 className="text-3xl font-serif font-bold mb-4">
                 Contact Information
               </h2>
 
@@ -211,7 +211,7 @@ export default function Contact() {
                         className="text-secondary hover:text-primary transition-colors flex items-center gap-2"
                       >
                         <FaLinkedin className="text-primary text-xl" />
-                        LinkedIn (Company)
+                        Didactik Media
                       </a>
                     </p>
                     <p>
@@ -222,7 +222,7 @@ export default function Contact() {
                         className="text-secondary hover:text-primary transition-colors flex items-center gap-2"
                       >
                         <FaLinkedin className="text-primary text-xl" />
-                        LinkedIn (Founder)
+                        Emem Attah
                       </a>
                     </p>
                     <p>
