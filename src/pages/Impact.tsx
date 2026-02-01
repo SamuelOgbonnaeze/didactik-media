@@ -12,7 +12,10 @@ export default function Impact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-6"
           >
-            Why This Matters.
+            Why{" "}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
+              This Matters.
+            </span>
           </motion.h1>
         </div>
       </section>
@@ -28,7 +31,7 @@ export default function Impact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-6 text-secondary">
+              <h2 className="text-3xl font-serif font-bold mb-6 text-primary">
                 The Cultural Imperative
               </h2>
               <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
@@ -51,7 +54,7 @@ export default function Impact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-6 text-secondary">
+              <h2 className="text-3xl font-serif font-bold mb-6 text-primary">
                 The Economic Engine
               </h2>
               <div className="space-y-4 text-lg text-gray-700 leading-relaxed">

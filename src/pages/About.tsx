@@ -32,7 +32,10 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-6"
           >
-            Architects of Memory.
+            Architects of{" "}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
+              Memory.
+            </span>
           </motion.h1>
         </div>
       </section>
@@ -52,7 +55,7 @@ export default function About() {
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                I have always been interested in how stories shape power — who
+                I have always been interested in how stories shape power - who
                 gets remembered, who gets believed, and who gets written out.
                 Trained as a lawyer and shaped by years working in television
                 production, I saw firsthand how culture, media, and policy
@@ -66,7 +69,7 @@ export default function About() {
                 After leaving production, I founded Didactik Media to respond to
                 that absence. What began as a practical solution to archiving
                 and documentation has grown into a broader commitment to
-                preserving stories with integrity — from film and television to
+                preserving stories with integrity - from film and television to
                 cultural dialogue and institutional memory.
               </p>
               <p className="italic text-gray-600">

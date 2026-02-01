@@ -1,3 +1,10 @@
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="bg-primary text-white py-12 mt-auto">
@@ -8,7 +15,7 @@ export default function Footer() {
             <h3 className="text-xl font-serif font-bold mb-4">
               Didactik Media
             </h3>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-500 text-sm">
               Preserving Africa's audiovisual heritage. Building essential
               archival infrastructure for the continent's creative economy.
             </p>
@@ -17,16 +24,20 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
-            <div className="space-y-2 text-sm text-gray-300">
+            <div className="space-y-2 text-sm text-gray-500">
               <p>
                 <a
                   href="mailto:emem@didactikmedia.com"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-secondary transition-colors flex items-center gap-2"
                 >
+                  <FaEnvelope className="text-secondary" />
                   emem@didactikmedia.com
                 </a>
               </p>
-              <p>Lagos, Nigeria</p>
+              <p className="flex items-center gap-2">
+                <FaMapMarkerAlt className="text-secondary" />
+                Lagos, Nigeria
+              </p>
             </div>
           </div>
 
@@ -39,8 +50,9 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/didactik-media/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-accent transition-colors"
+                  className="text-gray-500 hover:text-secondary transition-colors flex items-center gap-2"
                 >
+                  <FaLinkedin className="text-secondary text-lg" />
                   LinkedIn (Company)
                 </a>
               </p>
@@ -49,8 +61,9 @@ export default function Footer() {
                   href="https://www.linkedin.com/in/ememobongattah/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-accent transition-colors"
+                  className="text-gray-500 hover:text-secondary transition-colors flex items-center gap-2"
                 >
+                  <FaLinkedin className="text-secondary text-lg" />
                   LinkedIn (Founder)
                 </a>
               </p>
@@ -59,8 +72,9 @@ export default function Footer() {
                   href="https://instagram.com/didactikmedia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-accent transition-colors"
+                  className="text-gray-500 hover:text-secondary transition-colors flex items-center gap-2"
                 >
+                  <FaInstagram className="text-secondary text-lg" />
                   Instagram @didactikmedia
                 </a>
               </p>

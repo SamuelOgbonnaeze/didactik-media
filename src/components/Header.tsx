@@ -19,8 +19,12 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between py-6">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-serif font-bold text-primary">
-            Didactik Media
+          <Link to="/" className="flex items-center">
+            <img
+              src="/images/didactik-logo-1.svg"
+              alt="Didactik Media"
+              className="h-8 md:h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

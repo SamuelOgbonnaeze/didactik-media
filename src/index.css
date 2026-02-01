@@ -46,7 +46,7 @@
   .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, #5343fd 0%, #3fd7ff 100%);
     color: white;
     border-radius: 9999px;
     font-weight: 600;
@@ -54,9 +54,9 @@
   }
 
   .cta-button:hover {
-    background-color: #8b7355;
+    background: linear-gradient(135deg, #7b68fe 0%, #5fe3ff 100%);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(83, 67, 253, 0.3);
   }
 
   .card {

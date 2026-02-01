@@ -48,7 +48,10 @@ export default function Home() {
               variants={itemVariants}
               className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight"
             >
-              Securing Africa's Story.
+              Securing{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
+                Africa's Story.
+              </span>
             </motion.h1>
 
             <motion.p
@@ -114,9 +117,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                className="card"
+                className="card hover:border-primary/20"
               >
-                <h3 className="text-2xl font-serif font-semibold mb-4">
+                <h3 className="text-2xl font-serif font-semibold mb-4 text-primary">
                   {value.title}
                 </h3>
                 <p className="text-gray-600">{value.description}</p>

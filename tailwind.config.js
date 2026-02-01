@@ -4,10 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1a1a1a",
-        secondary: "#8b7355",
-        accent: "#c9a961",
+        primary: "#5343FD", // Brand purple from logo
+        secondary: "#3FD7FF", // Brand cyan from logo
+        accent: "#7B68FE", // Lighter purple for accents
         "bg-alt": "#f8f8f8",
+        "brand-purple": "#5343FD",
+        "brand-cyan": "#3FD7FF",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -174,30 +180,37 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold mb-2">Email</h3>
+                  <h3 className="font-semibold mb-2 flex items-center gap-2">
+                    <FaEnvelope className="text-primary" />
+                    Email
+                  </h3>
                   <a
                     href="mailto:emem@didactikmedia.com"
-                    className="text-secondary hover:text-accent transition-colors"
+                    className="text-secondary hover:text-primary transition-colors ml-6"
                   >
                     emem@didactikmedia.com
                   </a>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold mb-2">Location</h3>
-                  <p className="text-gray-600">Lagos, Nigeria</p>
+                  <h3 className="font-semibold mb-2 flex items-center gap-2">
+                    <FaMapMarkerAlt className="text-primary" />
+                    Location
+                  </h3>
+                  <p className="text-gray-600 ml-6">Lagos, Nigeria</p>
                 </div>
 
                 <div>
                   <h3 className="font-semibold mb-4">Connect With Us</h3>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <p>
                       <a
                         href="https://www.linkedin.com/company/didactik-media/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-secondary hover:text-accent transition-colors"
+                        className="text-secondary hover:text-primary transition-colors flex items-center gap-2"
                       >
+                        <FaLinkedin className="text-primary text-xl" />
                         LinkedIn (Company)
                       </a>
                     </p>
@@ -206,8 +219,9 @@ export default function Contact() {
                         href="https://www.linkedin.com/in/ememobongattah/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-secondary hover:text-accent transition-colors"
+                        className="text-secondary hover:text-primary transition-colors flex items-center gap-2"
                       >
+                        <FaLinkedin className="text-primary text-xl" />
                         LinkedIn (Founder)
                       </a>
                     </p>
@@ -216,8 +230,9 @@ export default function Contact() {
                         href="https://instagram.com/didactikmedia"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-secondary hover:text-accent transition-colors"
+                        className="text-secondary hover:text-primary transition-colors flex items-center gap-2"
                       >
+                        <FaInstagram className="text-primary text-xl" />
                         Instagram @didactikmedia
                       </a>
                     </p>

@@ -62,7 +62,10 @@ export default function OurWork() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-serif font-bold mb-6 max-w-3xl"
           >
-            From Chaos to Cultural Capital.
+            From Chaos to{" "}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
+              Cultural Capital.
+            </span>
           </motion.h1>
         </div>
       </section>
@@ -80,11 +83,11 @@ export default function OurWork() {
                 transition={{ duration: 0.8 }}
                 className="flex flex-col md:flex-row items-start gap-8"
               >
-                <div className="text-6xl md:text-8xl font-bold text-gray-100 font-serif">
+                <div className="text-6xl md:text-8xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text font-serif">
                   {step.number}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-3xl font-serif font-semibold mb-4">
+                  <h3 className="text-3xl font-serif font-semibold mb-4 text-primary">
                     {step.title}
                   </h3>
                   <p className="text-lg text-gray-600 leading-relaxed">
@@ -100,7 +103,9 @@ export default function OurWork() {
       {/* Services */}
       <section className="py-24 bg-bg-alt">
         <div className="container">
-          <h2 className="text-4xl font-serif font-bold mb-12">Our Services</h2>
+          <h2 className="text-4xl font-serif font-bold mb-12 text-primary">
+            Our Services
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -109,9 +114,11 @@ export default function OurWork() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="card"
+                className="card hover:border-secondary/20"
               >
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-primary">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600">{service.description}</p>
               </motion.div>
             ))}
