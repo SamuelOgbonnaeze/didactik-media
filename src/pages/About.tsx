@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import TeamTree from "../components/TeamTree";
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   const values = [
     {
       title: "Truth",
