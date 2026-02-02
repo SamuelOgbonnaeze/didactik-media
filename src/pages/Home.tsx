@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import LogoMarquee from "../components/LogoMarquee";
+import SustainabilityStrip from "../components/SustainabilityStrip";
 
 export default function Home() {
   const containerVariants = {
@@ -59,10 +60,7 @@ export default function Home() {
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-3 md:mb-4 max-w-full md:max-w-3xl leading-relaxed"
             >
-              The operating system for Africa's audiovisual heritage. We
-              preserve, catalog, and activate the continent's film and broadcast
-              archives with AI-powered infrastructure built for the creative
-              economy.
+              The operating system for Africa's audiovisual heritage. We preserve, catalog, and activate the continent's film and broadcast archives with AI-powered infrastructure - building essential systems for the creative economy.
             </motion.p>
 
             <motion.p
@@ -161,6 +159,10 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Sustainability Strip */}
+      <SustainabilityStrip />
+
       {/* Featured In The News */}
       <section className="py-16 bg-bg-alt">
         <div className="container">
@@ -180,7 +182,7 @@ export default function Home() {
                   className="w-full h-auto object-cover"
                 />
               </div>
-            </motion.div>
+            </motion.div>         
 
             {/* Content Side */}
             <motion.div
