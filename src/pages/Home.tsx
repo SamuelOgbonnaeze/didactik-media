@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import LogoMarquee from "../components/LogoMarquee";
 
 export default function Home() {
   const containerVariants = {
@@ -70,6 +71,10 @@ export default function Home() {
               Trusted by Africa Magic, Showmax & Amazon Prime Video
             </motion.p>
 
+            <motion.div variants={itemVariants} className="mb-8 w-full">
+              <LogoMarquee />
+            </motion.div>
+
             <motion.div
               variants={itemVariants}
               className="flex flex-wrap gap-4 mb-10"
@@ -125,6 +130,82 @@ export default function Home() {
                 <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured In The News */}
+      <section className="py-16 bg-bg-alt">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            {/* Image Side */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full md:w-1/2"
+            >
+              <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
+                <img
+                  src="/images/guardian-feature.png"
+                  alt="Didactik Media featured in The Guardian"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </motion.div>
+
+            {/* Content Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full md:w-1/2"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-semibold tracking-wide uppercase">
+                  Featured Story
+                </span>
+                <span className="text-gray-400 text-sm">|</span>
+                <span className="text-gray-500 font-serif italic">
+                  The Guardian
+                </span>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-primary leading-tight">
+                Preserving Nigeria's Cultural Legacy
+              </h2>
+
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Read about our vision and impact in this feature by The
+                Guardian, highlighting Didactik Media's commitment to securing
+                the nation's audiovisual heritage for future generations.
+              </p>
+
+              <a
+                href="https://guardian.ng/art/preserving-nigerias-cultural-legacy-vision-impact-of-didactik-media/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-button inline-flex items-center gap-2"
+              >
+                Read Full Article
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
