@@ -86,25 +86,31 @@ export default function Home() {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-8 text-sm text-gray-600"
+              className="flex flex-wrap gap-12 pt-8 border-t border-gray-200"
             >
               <div>
-                <div className="text-3xl font-bold text-secondary mb-1">
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
                   100+
                 </div>
-                <div>Hours Preserved</div>
+                <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                  Hours Preserved
+                </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-secondary mb-1">
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
                   15+
                 </div>
-                <div>Institutional Clients</div>
+                <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                  Institutional Clients
+                </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-secondary mb-1">
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
                   100%
                 </div>
-                <div>Broadcast-Ready</div>
+                <div className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                  Broadcast-Ready
+                </div>
               </div>
             </motion.div>
           </div>
