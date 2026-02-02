@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import LogoMarquee from "../components/LogoMarquee";
 import SustainabilityStrip from "../components/SustainabilityStrip";
+import ImageWithSkeleton from "../components/ImageWithSkeleton";
 
 export default function Home() {
   const containerVariants = {
@@ -60,7 +61,10 @@ export default function Home() {
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-3 md:mb-4 max-w-full md:max-w-3xl leading-relaxed"
             >
-              The operating system for Africa's audiovisual heritage. We preserve, catalog, and activate the continent's film and broadcast archives with AI-powered infrastructure - building essential systems for the creative economy.
+              The operating system for Africa's audiovisual heritage. We
+              preserve, catalog, and activate the continent's film and broadcast
+              archives with AI-powered infrastructure - building essential
+              systems for the creative economy.
             </motion.p>
 
             <motion.p
@@ -119,10 +123,7 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="absolute inset-0 lg:inset-auto lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-0 lg:w-[60%] flex items-center justify-center lg:justify-end pointer-events-none"
           >
-            <motion.img
-              src="/images/film-reel-hero.png"
-              alt="Vintage film reel artistic illustration"
-              className="w-[80%] max-w-xs sm:max-w-sm md:max-w-md lg:w-full lg:max-w-none h-auto object-contain opacity-100 lg:opacity-100 drop-shadow-2xl lg:ml-auto"
+            <motion.div
               animate={{
                 y: [0, -15, 0],
               }}
@@ -131,7 +132,14 @@ export default function Home() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-            />
+              className="w-[80%] max-w-xs sm:max-w-sm md:max-w-md lg:w-full lg:max-w-none"
+            >
+              <ImageWithSkeleton
+                src="/images/film-reel-hero.png"
+                alt="Vintage film reel artistic illustration"
+                className="w-full h-auto object-contain opacity-100 lg:opacity-100 drop-shadow-2xl lg:ml-auto"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -159,7 +167,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Sustainability Strip */}
       <SustainabilityStrip />
 
@@ -176,13 +183,14 @@ export default function Home() {
               className="w-full md:w-1/2"
             >
               <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
-                <img
+                <ImageWithSkeleton
                   src="/images/guardian-feature.png"
                   alt="Didactik Media featured in The Guardian"
                   className="w-full h-auto object-cover"
+                  skeletonClassName="rounded-xl"
                 />
               </div>
-            </motion.div>         
+            </motion.div>
 
             {/* Content Side */}
             <motion.div

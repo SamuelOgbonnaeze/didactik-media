@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import ImageWithSkeleton from "./ImageWithSkeleton";
 
 interface TeamMember {
   name: string;
@@ -13,7 +14,7 @@ const teamData: TeamMember[] = [
     name: "Ememobong Attah",
     role: "Founder & CEO",
     credential:
-      "LL.B Law, Babcock University | IP & Media Strategist | CP Innovate Grant 2024",
+      "LL.B Law, Babcock University | IP & Media Strategist | CP Innovate Grant Finalist 2024",
     photo: "/images/team/founder-img-1.jpeg",
   },
   {
@@ -23,7 +24,7 @@ const teamData: TeamMember[] = [
   },
   {
     name: "Daphne Soyinka",
-    role: "Archivist & Client Relations Lead",
+    role: "Archivist & Client Relations",
     credential: "B.A., Federal University of Agriculture, Abeokuta",
   },
   {
@@ -53,10 +54,11 @@ export default function TeamTree() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex flex-col md:flex-row items-center gap-8 bg-white p-10 rounded-2xl shadow-xl z-10 max-w-4xl w-full border border-gray-100"
             >
-              <img
+              <ImageWithSkeleton
                 src="/images/founder-img-1.jpeg"
                 alt={teamData[0].name}
                 className="w-40 h-40 rounded-full object-cover flex-shrink-0 border-4 border-secondary shadow-md"
+                skeletonClassName="rounded-full"
               />
               <div className="text-center md:text-left flex-1">
                 <h3 className="text-3xl font-serif font-bold mb-2 text-gray-900">

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ImageWithSkeleton from "../components/ImageWithSkeleton";
 import { Link } from "react-router-dom";
 
 export default function About() {
@@ -55,15 +56,17 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Founder Image */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.6 }}
+                className="relative"
               >
-                <img
+                <ImageWithSkeleton
                   src="/images/emem.png"
                   alt="Ememobong Attah, Founder & CEO"
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white"
+                  skeletonClassName="rounded-2xl"
                 />
               </motion.div>
 
