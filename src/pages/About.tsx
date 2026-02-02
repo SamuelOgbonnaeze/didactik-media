@@ -78,7 +78,7 @@ export default function About() {
                   </h3>
                   <p className="text-base italic text-gray-600">
                     LL.B (Babcock University) | Intellectual Property & Media
-                    Strategist | CP Innovate Grant 2024 (Shortlisted)
+                    Strategist | CP Innovate Grant 2024 (Finalist)
                   </p>
                 </div>
                 <p>
