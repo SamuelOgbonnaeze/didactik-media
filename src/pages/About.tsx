@@ -50,7 +50,7 @@ export default function About() {
             className="max-w-6xl mx-auto"
           >
             <h2 className="text-3xl font-serif font-bold mb-8">
-              Founder's Note
+              Founder's Bio
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Founder Image */}
