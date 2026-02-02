@@ -43,13 +43,13 @@ export default function Home() {
         animate="visible"
         className="py-20 md:py-32 bg-gradient-to-b from-white to-bg-alt flex items-center"
       >
-        <div className="container">
-          <div className="max-w-4xl">
+        <div className="container relative flex items-start min-h-[80vh]">
+          <div className="flex-1 max-w-2xl lg:max-w-3xl relative z-10">
             <motion.h1
               variants={itemVariants}
               className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight"
             >
-              Securing{" "}
+              Securing <br />
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
                 Africa's Story.
               </span>
@@ -108,6 +108,26 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, x: 50, rotate: 5 }}
+            animate={{ opacity: 0.2, x: 0, rotate: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block z-0 w-[60%]"
+          >
+            <motion.img
+              src="/images/film-reel-hero.png"
+              alt="Vintage film reel artistic illustration"
+              className="w-full h-auto object-contain drop-shadow-2xl ml-auto"
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
         </div>
       </motion.section>
 
