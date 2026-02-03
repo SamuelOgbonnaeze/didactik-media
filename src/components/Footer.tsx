@@ -56,17 +56,7 @@ export default function Footer() {
                   Didactik Media
                 </a>
               </p>
-              <p>
-                <a
-                  href="https://www.linkedin.com/in/ememobongattah/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-secondary transition-colors flex items-center gap-2"
-                >
-                  <FaLinkedin className="text-secondary text-lg" />
-                  Emem Attah
-                </a>
-              </p>
+              
               <p>
                 <a
                   href="https://instagram.com/didactikmedia"

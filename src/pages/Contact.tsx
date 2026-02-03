@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import {
   FaLinkedin,
   FaInstagram,
@@ -22,16 +23,36 @@ export default function Contact() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_organization: formData.organization,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
       setIsSubmitting(false);
       setSubmitStatus("success");
       setFormData({ name: "", organization: "", email: "", message: "" });
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
-    }, 1000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+
+      // Reset error message after 5 seconds
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    }
   };
 
   const handleChange = (
@@ -162,6 +183,17 @@ export default function Contact() {
                     className="text-green-600 text-center"
                   >
                     Thank you! We'll be in touch soon.
+                  </motion.p>
+                )}
+
+                {submitStatus === "error" && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600 text-center"
+                  >
+                    Failed to send message. Please try again or email us
+                    directly.
                   </motion.p>
                 )}
               </form>
