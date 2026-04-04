@@ -144,7 +144,6 @@ export default function Home() {
                 src="/images/film-reel-hero.png"
                 alt="Vintage film reel artistic illustration"
                 className="w-full h-auto object-contain opacity-100 lg:opacity-100 drop-shadow-2xl lg:ml-auto"
-                priority={true}
               />
             </motion.div>
           </motion.div>
