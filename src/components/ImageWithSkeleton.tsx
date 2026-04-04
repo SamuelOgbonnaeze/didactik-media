@@ -6,6 +6,10 @@ interface ImageWithSkeletonProps {
   alt: string;
   className?: string;
   skeletonClassName?: string;
+  /** Set to true for above-the-fold images (e.g. hero) to boost LCP */
+  priority?: boolean;
+  width?: number;
+  height?: number;
 }
 
 export default function ImageWithSkeleton({
@@ -13,6 +17,9 @@ export default function ImageWithSkeleton({
   alt,
   className = "",
   skeletonClassName = "",
+  priority = false,
+  width,
+  height,
 }: ImageWithSkeletonProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -36,7 +43,10 @@ export default function ImageWithSkeleton({
           setHasError(true);
           setIsLoaded(true);
         }}
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+        width={width}
+        height={height}
       />
 
       {/* Error State */}

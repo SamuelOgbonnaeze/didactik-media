@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import ImageWithSkeleton from "../components/ImageWithSkeleton";
 import { Link } from "react-router-dom";
 
@@ -24,6 +25,11 @@ export default function About() {
 
   return (
     <div>
+      <Helmet>
+        <title>About Didactik Media — Architects of Memory</title>
+        <meta name="description" content="Meet Emem Attah and the team building Africa's premier audiovisual archive infrastructure." />
+        <link rel="canonical" href="https://www.didactikmedia.com/about" />
+      </Helmet>
       {/* Header */}
       <section className="pt-20 pb-10 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">

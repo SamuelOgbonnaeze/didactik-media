@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import LogoMarquee from "../components/LogoMarquee";
 import SustainabilityStrip from "../components/SustainabilityStrip";
 import ImageWithSkeleton from "../components/ImageWithSkeleton";
@@ -10,8 +11,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
+        staggerChildren: 0.2,
+        delayChildren: 0.05,
       },
     },
   };
@@ -38,6 +39,11 @@ export default function Home() {
 
   return (
     <div>
+      <Helmet>
+        <title>Didactik Media — Securing Africa's Story</title>
+        <meta name="description" content="The operating system for Africa's audiovisual heritage. AI-powered archival infrastructure for broadcasters and cultural institutions." />
+        <link rel="canonical" href="https://www.didactikmedia.com/" />
+      </Helmet>
       {/* Hero Section */}
       <motion.section
         variants={containerVariants}
@@ -138,6 +144,7 @@ export default function Home() {
                 src="/images/film-reel-hero.png"
                 alt="Vintage film reel artistic illustration"
                 className="w-full h-auto object-contain opacity-100 lg:opacity-100 drop-shadow-2xl lg:ml-auto"
+                priority={true}
               />
             </motion.div>
           </motion.div>

@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function Impact() {
   return (
     <div>
+      <Helmet>
+        <title>Our Impact — Didactik Media</title>
+        <meta name="description" content="100+ hours preserved, 15+ institutional clients. See the measurable social and cultural impact of Didactik Media." />
+        <link rel="canonical" href="https://www.didactikmedia.com/impact" />
+      </Helmet>
       {/* Header */}
       <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">

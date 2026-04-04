@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import TeamTree from "../components/TeamTree";
 
 export default function Team() {
   return (
     <div>
+      <Helmet>
+        <title>The Team — Didactik Media</title>
+        <meta name="description" content="Meet the team of archivists, technologists, and media professionals at Didactik Media." />
+        <link rel="canonical" href="https://www.didactikmedia.com/team" />
+      </Helmet>
       {/* Header */}
       <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">

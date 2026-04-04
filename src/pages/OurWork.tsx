@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function OurWork() {
   const processSteps = [
@@ -54,6 +55,11 @@ export default function OurWork() {
 
   return (
     <div>
+      <Helmet>
+        <title>Our Work — Didactik Media</title>
+        <meta name="description" content="Explore how Didactik Media preserves, catalogs, and activates Africa's film and broadcast archives." />
+        <link rel="canonical" href="https://www.didactikmedia.com/our-work" />
+      </Helmet>
       {/* Header */}
       <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">

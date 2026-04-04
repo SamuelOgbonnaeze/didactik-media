@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <nav aria-label="Contact information">
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-sm text-gray-500">
               <p>
@@ -39,10 +39,10 @@ export default function Footer() {
                 Lagos, Nigeria
               </p>
             </div>
-          </div>
+          </nav>
 
           {/* Social Links */}
-          <div>
+          <nav aria-label="Social media links">
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="space-y-2 text-sm">
               <p>
@@ -69,7 +69,7 @@ export default function Footer() {
                 </a>
               </p>
             </div>
-          </div>
+          </nav>
         </div>
 
         {/* Copyright */}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
+import { Helmet } from "react-helmet-async";
 import {
   FaLinkedin,
   FaInstagram,
@@ -66,6 +67,11 @@ export default function Contact() {
 
   return (
     <div>
+      <Helmet>
+        <title>Contact Didactik Media</title>
+        <meta name="description" content="Reach out to Didactik Media to discuss archival partnerships, digitization projects, and collaboration." />
+        <link rel="canonical" href="https://www.didactikmedia.com/contact" />
+      </Helmet>
       {/* Header */}
       <section className="pt-20 pb-10 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
