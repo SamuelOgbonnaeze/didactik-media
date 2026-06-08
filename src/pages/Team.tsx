@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import TeamTree from "../components/TeamTree";
+import TeamSection from "../components/TeamSection";
 
 export default function Team() {
   return (
@@ -37,8 +37,8 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Team Tree */}
-      <TeamTree />
+      {/* Team Section — Grid + Org Chart */}
+      <TeamSection />
 
       {/* Team Stats */}
       <section className="py-16 bg-white">
