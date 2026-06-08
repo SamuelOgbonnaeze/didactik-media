@@ -57,7 +57,7 @@ export function ProductionSubmitPage() {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
 
   const methods = useForm<WizardFormData>({
-    resolver: zodResolver(wizardSchema),
+    resolver: zodResolver(wizardSchema) as any,
     defaultValues: {
       title: '',
       original_title: '',
