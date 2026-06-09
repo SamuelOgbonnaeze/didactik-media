@@ -7,12 +7,12 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-12 mt-auto">
+    <footer className="bg-primary py-12 mt-auto">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-serif font-bold mb-4">
+            <h3 className="text-xl font-serif font-bold mb-4 ">
               Didactik Media
             </h3>
             <p className="text-gray-500 text-sm">
@@ -56,7 +56,7 @@ export default function Footer() {
                   Didactik Media
                 </a>
               </p>
-              
+
               <p>
                 <a
                   href="https://instagram.com/didactikmedia"

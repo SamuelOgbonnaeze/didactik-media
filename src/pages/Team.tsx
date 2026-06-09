@@ -12,7 +12,7 @@ export default function Team() {
         <link rel="canonical" href="https://www.didactikmedia.com/team" />
       </Helmet>
       {/* Header */}
-      <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
+      <section className="py-4 md:py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -41,7 +41,7 @@ export default function Team() {
       <TeamSection />
 
       {/* Team Stats */}
-      <section className="py-16 bg-white">
+      <section className="py-4 md:py-16 bg-white">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,7 +74,7 @@ export default function Team() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-bg-alt">
+      <section className="py-4 md:py-16 bg-bg-alt">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

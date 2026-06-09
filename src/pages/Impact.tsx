@@ -11,12 +11,12 @@ export default function Impact() {
         <link rel="canonical" href="https://www.didactikmedia.com/impact" />
       </Helmet>
       {/* Header */}
-      <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
+      <section className="py-4 lg:py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-serif font-bold mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4"
           >
             Why{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
@@ -27,9 +27,9 @@ export default function Impact() {
       </section>
 
       {/* Two-Column Impact */}
-      <section className="py-16 bg-white">
+      <section className="py-4 lg:py-16 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
             {/* Cultural Imperative */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -37,10 +37,10 @@ export default function Impact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-4 text-primary">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3 md:mb-4 text-primary">
                 The Cultural Imperative
               </h2>
-              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <div className="space-y-3 md:space-y-4 text-base md:text-lg text-gray-700 leading-normal md:leading-relaxed">
                 <p>
                   Preventing the permanent loss of history-70%+ of pre-2000
                   Nigerian TV content is already gone.
@@ -60,10 +60,10 @@ export default function Impact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-4 text-primary">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold mb-3 md:mb-4 text-primary">
                 The Economic Engine
               </h2>
-              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <div className="space-y-3 md:space-y-4 text-base md:text-lg text-gray-700 leading-normal md:leading-relaxed">
                 <p>
                   Transforming cost centers into revenue streams-unlocking
                   billions in creative IP.
@@ -83,17 +83,17 @@ export default function Impact() {
       </section>
 
       {/* Featured Quote */}
-      <section className="py-16 bg-bg-alt">
+      <section className="py-4 lg:py-16 bg-bg-alt">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center px-4"
           >
-            <div className="text-6xl text-secondary mb-4">"</div>
-            <blockquote className="text-2xl md:text-3xl font-serif italic text-gray-800 mb-4 leading-relaxed">
+            <div className="text-5xl md:text-6xl text-secondary mb-2 md:mb-4 leading-none">"</div>
+            <blockquote className="text-xl md:text-3xl font-serif italic text-gray-800 mb-4 leading-normal md:leading-relaxed">
               We are not just saving tapes; we are securing the raw material of
               our future.
             </blockquote>

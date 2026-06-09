@@ -1,11 +1,16 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap");
+
+@theme {
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-serif: "Crimson Pro", Georgia, serif;
+}
 
 @layer base {
   body {
     margin: 0;
     padding: 0;
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Outfit", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -17,6 +22,18 @@
   h5,
   h6 {
     font-family: "Crimson Pro", Georgia, serif;
+  }
+
+  button,
+  a[href],
+  [role="button"] {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  }
+
+  button:active,
+  a[href]:active,
+  [role="button"]:active {
+    transform: scale(0.98) translateY(0) !important;
   }
 }
 
@@ -50,13 +67,17 @@
     color: white;
     border-radius: 9999px;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .cta-button:hover {
     background: linear-gradient(135deg, #7b68fe 0%, #5fe3ff 100%);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 10px 25px rgba(83, 67, 253, 0.3);
+  }
+
+  .cta-button:active {
+    transform: scale(0.98) translateY(0);
   }
 
   .card {
@@ -64,11 +85,15 @@
     padding: 1.5rem;
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
-    transition: all 0.3s;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+
+  .card:active {
+    transform: scale(0.98) translateY(0);
   }
 }

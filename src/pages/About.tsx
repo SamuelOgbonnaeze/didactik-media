@@ -31,7 +31,7 @@ export default function About() {
         <link rel="canonical" href="https://www.didactikmedia.com/about" />
       </Helmet>
       {/* Header */}
-      <section className="pt-20 pb-10 bg-gradient-to-b from-bg-alt to-white">
+      <section className="py-4 md:py-8 lg:py-12 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -47,7 +47,7 @@ export default function About() {
       </section>
 
       {/* Founder's Note */}
-      <section className="pt-10 pb-20 bg-white">
+      <section className="py-4 md:py-8 lg:py-12 bg-white">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ export default function About() {
             <h2 className="text-3xl font-serif font-bold mb-8">
               Founder's Bio
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Founder Image */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -77,7 +77,7 @@ export default function About() {
               </motion.div>
 
               {/* Founder's Note Text */}
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-700 leading-normal md:leading-relaxed">
                 <div className="mb-4">
                   <h3 className="text-2xl font-serif font-semibold mb-2">
                     Emem Attah | Founder & CEO
@@ -118,7 +118,7 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16 bg-bg-alt">
+      <section className="py-4 md:py-8 lg:py-12 bg-bg-alt">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -130,7 +130,7 @@ export default function About() {
             <h2 className="text-3xl font-serif font-bold mb-8 text-center">
               Our Story
             </h2>
-            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-700 leading-normal md:leading-relaxed">
               <p>
                 Didactik Media was founded to address a critical gap in Africa's
                 creative economy: the systematic loss of audiovisual heritage.
@@ -157,12 +157,12 @@ export default function About() {
         </div>
       </section>
       {/* Core Values */}
-      <section className="py-16 bg-white">
+      <section className="py-4 md:py-8 lg:py-12 bg-white">
         <div className="container">
           <h2 className="text-4xl font-serif font-bold mb-12 text-center">
             Our Values
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
