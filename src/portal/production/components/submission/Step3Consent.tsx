@@ -50,7 +50,7 @@ export function Step3Consent() {
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="w-full flex items-center justify-between px-4 py-3 text-sm text-indigo-600 hover:text-indigo-800 font-medium text-left"
+          className="w-full flex items-center justify-between px-4 py-3 text-sm text-primary hover:text-accent font-medium text-left transition-colors duration-200 ease-out"
         >
           <span>{expanded ? 'Hide consent terms' : 'View full consent terms'}</span>
           <span className="text-gray-400">{expanded ? '▲' : '▼'}</span>
@@ -70,7 +70,7 @@ export function Step3Consent() {
           id="consented"
           type="checkbox"
           {...register('consented')}
-          className="mt-0.5 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+          className="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary focus:ring-secondary focus:border-transparent transition-all duration-200 ease-out"
         />
         <label htmlFor="consented" className="text-sm text-gray-700 cursor-pointer">
           I have read the consent terms above and explicitly consent to the transfer
@@ -78,7 +78,7 @@ export function Step3Consent() {
           <button 
             type="button" 
             onClick={() => setIsDrawerOpen(true)}
-            className="text-indigo-600 hover:underline font-medium"
+            className="text-primary hover:text-accent font-medium transition-colors duration-200 ease-out"
           >
             Privacy Policy
           </button>.

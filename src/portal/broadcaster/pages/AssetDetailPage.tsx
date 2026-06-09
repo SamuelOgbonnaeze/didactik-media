@@ -26,7 +26,7 @@ export function BroadcasterAssetDetailPage() {
   if (isError || !asset) {
     return (
       <div>
-        <Link to="/portal/broadcaster/discover" className="text-sm text-indigo-600">
+        <Link to="/portal/broadcaster/discover" className="text-sm text-primary hover:text-accent transition-colors duration-200 ease-out">
           ← Back to discover
         </Link>
         <p className="mt-4 text-sm text-red-600">Asset not found or failed to load.</p>
@@ -96,8 +96,7 @@ export function BroadcasterAssetDetailPage() {
         </p>
         <a
           href={`mailto:rights@didactikmedia.com?subject=Licensing enquiry — ${encodeURIComponent(asset.title)}&body=Asset ID: ${asset.id}%0A%0APlease describe your licensing requirements:`}
-          className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white"
-          style={{ backgroundColor: '#5343fd' }}
+          className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-accent transition-colors duration-200 ease-out"
         >
           Request licensing
         </a>

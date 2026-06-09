@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { postLogin, decodeToken } from './auth';
 import { useAuth } from './AuthContext';
+import { motion } from 'framer-motion';
 
 export function LoginPage() {
   const { login } = useAuth();
@@ -34,15 +35,19 @@ export function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-8">
-        <div className="mb-8 text-center">
-          <span
-            className="text-2xl font-bold tracking-tight"
-            style={{ color: '#5343fd' }}
-          >
-            Didactik
-          </span>
+    <div className="min-h-screen flex items-center justify-center bg-bg-alt px-4">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+        className="w-full max-w-sm bg-white rounded-2xl shadow-md p-8"
+      >
+        <div className="mb-8 text-center flex flex-col items-center">
+          <img 
+            src="/images/didactik-logo-1.svg" 
+            alt="Didactik Media" 
+            className="h-10 mb-2" 
+          />
           <p className="mt-1 text-sm text-gray-500">Sign in to your portal</p>
         </div>
 
@@ -67,7 +72,7 @@ export function LoginPage() {
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200"
             />
           </div>
           <div>
@@ -84,19 +89,18 @@ export function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200"
             />
           </div>
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-lg py-2 text-sm font-semibold text-white transition-opacity disabled:opacity-60"
-            style={{ backgroundColor: '#5343fd' }}
+            className="cta-button w-full border-none outline-none disabled:opacity-60 text-sm py-3"
           >
             {submitting ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }

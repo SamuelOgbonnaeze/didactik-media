@@ -111,17 +111,17 @@ export function ProductionSubmitPage() {
             <div key={n} className="flex items-center gap-2">
               <div
                 className={`flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold
-                  ${done ? 'bg-indigo-600 text-white' : active ? 'ring-2 ring-indigo-600 text-indigo-600' : 'bg-gray-100 text-gray-400'}`}
+                  ${done ? 'bg-primary text-white' : active ? 'ring-2 ring-primary text-primary' : 'bg-gray-100 text-gray-400'}`}
               >
                 {done ? '✓' : n}
               </div>
               <span
-                className={`text-xs font-medium ${active ? 'text-indigo-700' : done ? 'text-indigo-500' : 'text-gray-400'}`}
+                className={`text-xs font-medium ${active ? 'text-primary' : done ? 'text-accent' : 'text-gray-400'}`}
               >
                 {label}
               </span>
               {i < STEP_LABELS.length - 1 && (
-                <div className={`flex-1 h-px w-6 ${done ? 'bg-indigo-300' : 'bg-gray-200'}`} />
+                <div className={`flex-1 h-px w-6 ${done ? 'bg-accent' : 'bg-gray-200'}`} />
               )}
             </div>
           );
@@ -155,8 +155,7 @@ export function ProductionSubmitPage() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-5 py-2 rounded-md text-sm font-medium text-white"
-                style={{ backgroundColor: '#5343fd' }}
+                className="px-5 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-accent transition-colors duration-200 ease-out"
               >
                 {step === 3 ? 'Continue to upload →' : 'Next →'}
               </button>
