@@ -10,7 +10,7 @@ interface LegalDrawerProps {
 export function LegalDrawer({ isOpen, onClose, children }: LegalDrawerProps) {
   // High-end spring physics for natural, physical movement
   const springTransition = {
-    type: "spring",
+    type: "spring" as const,
     stiffness: 350,
     damping: 35,
     mass: 1,
