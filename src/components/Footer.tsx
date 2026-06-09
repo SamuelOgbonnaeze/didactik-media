@@ -27,16 +27,21 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-500">
               <p>
                 <a
-                  href="mailto:emem@didactikmedia.com"
+                  href="mailto:onboarding@didactikmedia.com"
                   className="hover:text-secondary transition-colors flex items-center gap-2"
                 >
                   <FaEnvelope className="text-secondary" />
-                  emem@didactikmedia.com
+                  onboarding@didactikmedia.com
                 </a>
               </p>
               <p className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-secondary" />
                 Lagos, Nigeria
+              </p>
+              <p className="mt-4 pt-2 border-t border-gray-700/50">
+                <a href="/privacy" className="hover:text-secondary transition-colors">
+                  Privacy Policy
+                </a>
               </p>
             </div>
           </nav>

@@ -8,6 +8,8 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { LegalDrawer } from "../components/ui/LegalDrawer";
+import { PrivacyPolicyContent } from "../components/PrivacyPolicyContent";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,7 +17,9 @@ export default function Contact() {
     organization: "",
     email: "",
     message: "",
+    consented: false,
   });
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
@@ -23,6 +27,8 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!formData.consented) return;
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -42,7 +48,7 @@ export default function Contact() {
 
       setIsSubmitting(false);
       setSubmitStatus("success");
-      setFormData({ name: "", organization: "", email: "", message: "" });
+      setFormData({ name: "", organization: "", email: "", message: "", consented: false });
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
@@ -59,9 +65,12 @@ export default function Contact() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
+    const { name, value, type } = e.target;
+    const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: val,
     });
   };
 
@@ -172,6 +181,29 @@ export default function Contact() {
                   />
                 </div>
 
+                <div className="flex items-start gap-3 mt-4">
+                  <input
+                    id="consented"
+                    name="consented"
+                    type="checkbox"
+                    checked={formData.consented}
+                    onChange={handleChange}
+                    required
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                  />
+                  <label htmlFor="consented" className="text-sm text-gray-700 cursor-pointer">
+                    I consent to Didactik Media processing my information to respond to my inquiry, 
+                    in accordance with the{' '}
+                    <button 
+                      type="button" 
+                      onClick={() => setIsDrawerOpen(true)}
+                      className="text-secondary hover:underline font-medium"
+                    >
+                      Privacy Policy
+                    </button>.
+                  </label>
+                </div>
+
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -223,10 +255,10 @@ export default function Contact() {
                     Email
                   </h3>
                   <a
-                    href="mailto:emem@didactikmedia.com"
+                    href="mailto:onboarding@didactikmedia.com"
                     className="text-secondary hover:text-primary transition-colors ml-6"
                   >
-                    emem@didactikmedia.com
+                    onboarding@didactikmedia.com
                   </a>
                 </div>
 
@@ -270,6 +302,10 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <LegalDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+        <PrivacyPolicyContent />
+      </LegalDrawer>
     </div>
   );
 }
