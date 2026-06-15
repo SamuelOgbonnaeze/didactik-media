@@ -7,7 +7,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-primary py-12 mt-auto">
+    <footer className="bg-[#1a1a1a] text-white py-12 mt-auto">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
@@ -27,11 +27,11 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-500">
               <p>
                 <a
-                  href="mailto:onboarding@didactikmedia.com"
+                  href="mailto:admin@didactikmedia.com"
                   className="hover:text-secondary transition-colors flex items-center gap-2"
                 >
                   <FaEnvelope className="text-secondary" />
-                  onboarding@didactikmedia.com
+                  admin@didactikmedia.com
                 </a>
               </p>
               <p className="flex items-center gap-2">

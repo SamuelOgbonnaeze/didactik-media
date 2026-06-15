@@ -255,10 +255,10 @@ export default function Contact() {
                     Email
                   </h3>
                   <a
-                    href="mailto:onboarding@didactikmedia.com"
-                    className="text-secondary hover:text-primary transition-colors ml-6"
+                    href="mailto:admin@didactikmedia.com"
+                    className="mt-1 text-gray-500 hover:text-primary transition-colors"
                   >
-                    onboarding@didactikmedia.com
+                    admin@didactikmedia.com
                   </a>
                 </div>
 

@@ -74,7 +74,7 @@ export function PrivacyPolicyContent() {
       <section className="space-y-4">
         <h3 className="text-2xl font-serif font-semibold tracking-tight text-balance text-gray-900">6. Contact & Support</h3>
         <p>
-          For general portal support, account onboarding, or technical inquiries, please contact our team at <a href="mailto:onboarding@didactikmedia.com" className="text-secondary hover:text-primary transition-colors font-medium">onboarding@didactikmedia.com</a>.
+          For general portal support, account onboarding, or technical inquiries, please contact our team at <a href="mailto:admin@didactikmedia.com" className="text-secondary hover:text-primary transition-colors font-medium">admin@didactikmedia.com</a>.
         </p>
       </section>
     </div>

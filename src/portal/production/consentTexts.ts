@@ -109,7 +109,7 @@ Provisional Cross-Border Data Transfer Disclosure
 
 Didactik Media Limited ("Didactik") is the controller of your personal data. When you submit content through this platform, personal data — including your name, contact details, and submission metadata — will be transferred to and stored on servers operated by Backblaze, Inc., a company incorporated in the United States of America.
 
-Didactik has identified that the data protection framework applicable to submitters in your country or jurisdiction requires individual review. An admin staff member will contact you within seven business days at the details you provide to confirm the applicable legal framework and any additional safeguards or documentation required for your jurisdiction. Your content will not be made available on the platform until that review is complete. For enquiries, contact onboarding@didactikmedia.com.
+Didactik has identified that the data protection framework applicable to submitters in your country or jurisdiction requires individual review. An admin staff member will contact you within seven business days at the details you provide to confirm the applicable legal framework and any additional safeguards or documentation required for your jurisdiction. Your content will not be made available on the platform until that review is complete. For enquiries, contact admin@didactikmedia.com.
 
 Data transferred: your name, contact details, and submission metadata.
 Recipient: Backblaze, Inc., 500 Ben Franklin Court, San Mateo, CA 94402, USA.

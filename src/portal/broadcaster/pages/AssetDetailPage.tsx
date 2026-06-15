@@ -51,7 +51,7 @@ Duration: ${data.duration}
 Notes: ${data.notes || 'None'}
 `);
     
-    window.location.href = `mailto:rights@didactikmedia.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:admin@didactikmedia.com?subject=${subject}&body=${body}`;
     
     // Reset and close
     reset();
