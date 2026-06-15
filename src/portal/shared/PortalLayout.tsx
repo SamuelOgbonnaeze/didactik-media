@@ -1,7 +1,6 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import { postLogout } from './auth';
-import { useNavigate } from 'react-router-dom';
 
 export function PortalLayout() {
   const { user, logout } = useAuth();
@@ -33,6 +32,68 @@ export function PortalLayout() {
           </button>
         </div>
       </header>
+      {user && (
+        <div className="bg-white border-b border-gray-100 px-6 flex items-center gap-6">
+          {user.role === 'production_company_user' && (
+            <>
+              <NavLink
+                to="/portal/production/dashboard"
+                className={({ isActive }) =>
+                  `py-3 text-sm font-medium transition-colors border-b-2 -mb-[1px] ${
+                    isActive ? 'text-primary border-primary' : 'text-gray-500 border-transparent hover:text-primary'
+                  }`
+                }
+              >
+                Dashboard
+              </NavLink>
+              <NavLink
+                to="/portal/production/assets"
+                className={({ isActive }) =>
+                  `py-3 text-sm font-medium transition-colors border-b-2 -mb-[1px] ${
+                    isActive ? 'text-primary border-primary' : 'text-gray-500 border-transparent hover:text-primary'
+                  }`
+                }
+              >
+                Your Assets
+              </NavLink>
+              <NavLink
+                to="/portal/production/submit"
+                className={({ isActive }) =>
+                  `py-3 text-sm font-medium transition-colors border-b-2 -mb-[1px] ${
+                    isActive ? 'text-primary border-primary' : 'text-gray-500 border-transparent hover:text-primary'
+                  }`
+                }
+              >
+                Submit New
+              </NavLink>
+            </>
+          )}
+          {user.role === 'broadcaster_user' && (
+            <>
+              <NavLink
+                to="/portal/broadcaster/dashboard"
+                className={({ isActive }) =>
+                  `py-3 text-sm font-medium transition-colors border-b-2 -mb-[1px] ${
+                    isActive ? 'text-primary border-primary' : 'text-gray-500 border-transparent hover:text-primary'
+                  }`
+                }
+              >
+                Dashboard
+              </NavLink>
+              <NavLink
+                to="/portal/broadcaster/discover"
+                className={({ isActive }) =>
+                  `py-3 text-sm font-medium transition-colors border-b-2 -mb-[1px] ${
+                    isActive ? 'text-primary border-primary' : 'text-gray-500 border-transparent hover:text-primary'
+                  }`
+                }
+              >
+                Discover Content
+              </NavLink>
+            </>
+          )}
+        </div>
+      )}
       <main className="flex-grow p-6">
         <Outlet />
       </main>

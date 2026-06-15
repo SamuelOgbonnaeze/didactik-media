@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
@@ -9,6 +9,7 @@ import { StatusBadge } from '../../production/components/StatusBadge';
 import { DetailRow } from '../../shared/components/DetailRow';
 import type { AssetDetail } from '../../shared/types';
 import { useAuth } from '../../shared/AuthContext';
+import { useRecentlyViewed } from '../RecentlyViewedContext';
 
 const licensingSchema = z.object({
   intended_use: z.string().min(1, 'Please select intended use'),
@@ -22,6 +23,7 @@ type LicensingFormData = z.infer<typeof licensingSchema>;
 export function BroadcasterAssetDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
+  const { registerView } = useRecentlyViewed();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
@@ -61,6 +63,12 @@ Notes: ${data.notes || 'None'}
     queryFn: () => apiGet<AssetDetail>(`/api/v1/assets/${id}/`),
     enabled: !!id,
   });
+
+  useEffect(() => {
+    if (asset) {
+      registerView(asset);
+    }
+  }, [asset, registerView]);
 
   if (isLoading) return <p className="text-sm text-gray-500">Loading…</p>;
   if (isError || !asset) {
