@@ -10,14 +10,18 @@ export function ProductionDashboardPage() {
 
   const { data: response, isLoading } = useQuery({
     queryKey: ['assets'],
-    queryFn: () => apiFetch<PaginatedResponse<AssetListItem>>('/api/v1/assets/'),
+    queryFn: async () => {
+      const res = await apiFetch('/api/v1/assets/');
+      if (!res.ok) throw new Error('Failed to fetch assets');
+      return res.json() as Promise<PaginatedResponse<AssetListItem>>;
+    },
   });
 
   const assets = response?.results || [];
 
   const totalAssets = assets.length;
-  const readyToList = assets.filter((a) => a.status === 'READY_TO_PITCH').length;
-  const reviewPending = assets.filter((a) => a.status === 'REVIEW_PENDING').length;
+  const readyToList = assets.filter((a) => a.status === 'ready_to_list').length;
+  const reviewPending = assets.filter((a) => a.status === 'pending_admin_approval' || a.status === 'under_review').length;
 
   return (
     <div className="max-w-5xl mx-auto">

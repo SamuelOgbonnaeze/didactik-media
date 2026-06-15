@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider, useAuth } from './shared/AuthContext';
 import { ProtectedRoute } from './shared/ProtectedRoute';

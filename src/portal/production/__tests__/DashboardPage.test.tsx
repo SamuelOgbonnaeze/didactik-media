@@ -28,7 +28,10 @@ describe('ProductionDashboardPage', () => {
   });
 
   it('shows empty state when there are no assets', async () => {
-    vi.mocked(apiFetch).mockResolvedValueOnce({ count: 0, next: null, previous: null, results: [] });
+    vi.mocked(apiFetch).mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ count: 0, next: null, previous: null, results: [] }),
+    } as unknown as Response);
 
     render(<ProductionDashboardPage />, { wrapper: Wrapper });
 
@@ -43,12 +46,15 @@ describe('ProductionDashboardPage', () => {
 
   it('shows stat cards when there are assets', async () => {
     const mockAssets = [
-      { id: 1, title: 'Asset 1', status: 'READY_TO_PITCH' },
-      { id: 2, title: 'Asset 2', status: 'REVIEW_PENDING' },
-      { id: 3, title: 'Asset 3', status: 'REVIEW_PENDING' },
-      { id: 4, title: 'Asset 4', status: 'UPLOADED' },
+      { id: 1, title: 'Asset 1', status: 'ready_to_list' },
+      { id: 2, title: 'Asset 2', status: 'pending_admin_approval' },
+      { id: 3, title: 'Asset 3', status: 'pending_admin_approval' },
+      { id: 4, title: 'Asset 4', status: 'uploaded' },
     ];
-    vi.mocked(apiFetch).mockResolvedValueOnce({ count: mockAssets.length, next: null, previous: null, results: mockAssets });
+    vi.mocked(apiFetch).mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ count: mockAssets.length, next: null, previous: null, results: mockAssets }),
+    } as unknown as Response);
 
     render(<ProductionDashboardPage />, { wrapper: Wrapper });
 

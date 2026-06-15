@@ -13,7 +13,11 @@ export function BroadcasterDashboardPage() {
 
   const { data: response, isLoading } = useQuery({
     queryKey: ['assets'],
-    queryFn: () => apiFetch<PaginatedResponse<AssetListItem>>('/api/v1/assets/'),
+    queryFn: async () => {
+      const res = await apiFetch('/api/v1/assets/');
+      if (!res.ok) throw new Error('Failed to fetch assets');
+      return res.json() as Promise<PaginatedResponse<AssetListItem>>;
+    },
   });
 
   const assets = response?.results || [];

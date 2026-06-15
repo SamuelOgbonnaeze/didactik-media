@@ -37,10 +37,13 @@ describe('BroadcasterDashboardPage', () => {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 5);
     
     const mockAssets = [
-      { id: 1, title: 'Asset 1', status: 'READY_TO_PITCH', created_at: thirtyDaysAgo.toISOString(), asset_type: 'feature_film' },
-      { id: 2, title: 'Asset 2', status: 'READY_TO_PITCH', created_at: new Date('2020-01-01').toISOString(), asset_type: 'documentary' },
+      { id: 1, title: 'Asset 1', status: 'ready_to_list', created_at: thirtyDaysAgo.toISOString(), asset_type: 'feature_film' },
+      { id: 2, title: 'Asset 2', status: 'ready_to_list', created_at: new Date('2020-01-01').toISOString(), asset_type: 'documentary' },
     ];
-    vi.mocked(apiFetch).mockResolvedValueOnce({ count: mockAssets.length, next: null, previous: null, results: mockAssets });
+    vi.mocked(apiFetch).mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ count: mockAssets.length, next: null, previous: null, results: mockAssets }),
+    } as unknown as Response);
 
     render(<BroadcasterDashboardPage />, { wrapper: Wrapper });
 
