@@ -66,98 +66,42 @@ function OrgCard({ member, isCEO = false }: OrgCardProps) {
 
   return (
     <div
+      className={`inline-block bg-white text-center relative cursor-default ${
+        isCEO 
+          ? "rounded-2xl border-2 border-primary shadow-[0_8px_32px_rgba(83,67,253,0.18)] hover:shadow-[0_12px_40px_rgba(83,67,253,0.28)] hover:-translate-y-1 px-7 py-5 min-w-[220px] max-w-[280px]" 
+          : "rounded-xl border border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.13)] hover:-translate-y-0.5 px-5 py-3.5 min-w-[160px] max-w-[220px]"
+      }`}
       style={{
-        display: "inline-block",
-        background: "white",
-        borderRadius: isCEO ? "16px" : "12px",
-        border: isCEO ? "2px solid #5343FD" : "1px solid #E2E8F0",
-        boxShadow: isCEO
-          ? "0 8px 32px rgba(83,67,253,0.18)"
-          : "0 2px 12px rgba(0,0,0,0.08)",
-        padding: isCEO ? "20px 28px" : "14px 20px",
-        minWidth: isCEO ? "220px" : "160px",
-        maxWidth: isCEO ? "280px" : "220px",
-        textAlign: "center",
-        position: "relative",
-        transition: "box-shadow 0.2s, transform 0.2s",
-        cursor: "default",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = isCEO
-          ? "0 12px 40px rgba(83,67,253,0.28)"
-          : "0 6px 20px rgba(0,0,0,0.13)";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = isCEO
-          ? "0 8px 32px rgba(83,67,253,0.18)"
-          : "0 2px 12px rgba(0,0,0,0.08)";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+        transition: "box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
       }}
     >
       {/* CEO gradient badge */}
       {isCEO && (
         <div
-          style={{
-            position: "absolute",
-            top: "-1px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "linear-gradient(135deg, #5343FD, #3FD7FF)",
-            color: "white",
-            fontSize: "10px",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            padding: "3px 12px",
-            borderRadius: "0 0 8px 8px",
-            textTransform: "uppercase",
-          }}
+          className="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-br from-[#5343FD] to-[#3FD7FF] text-white text-[10px] font-bold tracking-[0.08em] px-3 py-[3px] rounded-b-lg uppercase"
         >
           Founder & CEO
         </div>
       )}
 
       {/* Avatar */}
-      <div
-        style={{
-          marginTop: isCEO ? "18px" : "0",
-          marginBottom: "10px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className={`flex justify-center mb-2.5 ${isCEO ? "mt-4.5" : "mt-0"}`}>
         {member.photo && !imgError ? (
           <img
             src={member.photo}
             alt={member.name}
             onError={() => setImgError(true)}
-            style={{
-              width: isCEO ? "72px" : "52px",
-              height: isCEO ? "72px" : "52px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              border: isCEO ? "3px solid #5343FD" : "2px solid #CBD5E1",
-              flexShrink: 0,
-            }}
+            className={`rounded-full object-cover shrink-0 ${
+              isCEO ? "w-[72px] h-[72px] border-[3px] border-[#5343FD]" : "w-[52px] h-[52px] border-2 border-slate-300"
+            }`}
           />
         ) : (
           <div
-            style={{
-              width: isCEO ? "72px" : "52px",
-              height: isCEO ? "72px" : "52px",
-              borderRadius: "50%",
-              background: isCEO
-                ? "linear-gradient(135deg, #5343FD, #3FD7FF)"
-                : "linear-gradient(135deg, #CBD5E1, #94A3B8)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontWeight: 700,
-              fontSize: isCEO ? "24px" : "18px",
-              fontFamily: "Inter, sans-serif",
-              flexShrink: 0,
-            }}
+            className={`flex items-center justify-center rounded-full text-white font-bold shrink-0 ${
+              isCEO 
+                ? "w-[72px] h-[72px] text-2xl bg-gradient-to-br from-[#5343FD] to-[#3FD7FF]" 
+                : "w-[52px] h-[52px] text-lg bg-gradient-to-br from-slate-300 to-slate-400"
+            }`}
           >
             {getInitials(member.name)}
           </div>
@@ -166,27 +110,18 @@ function OrgCard({ member, isCEO = false }: OrgCardProps) {
 
       {/* Name */}
       <p
-        style={{
-          fontWeight: 700,
-          fontSize: isCEO ? "15px" : "13px",
-          color: "#111827",
-          margin: "0 0 4px 0",
-          lineHeight: 1.3,
-          fontFamily: "Inter, sans-serif",
-        }}
+        className={`font-bold text-gray-900 m-0 mb-1 leading-snug ${
+          isCEO ? "text-[15px]" : "text-[13px]"
+        }`}
       >
         {member.name}
       </p>
 
       {/* Role */}
       <p
-        style={{
-          fontSize: isCEO ? "12px" : "11px",
-          color: "#5343FD",
-          fontWeight: 500,
-          margin: "0 0 4px 0",
-          fontFamily: "Inter, sans-serif",
-        }}
+        className={`text-[#5343FD] font-medium m-0 mb-1 ${
+          isCEO ? "text-xs" : "text-[11px]"
+        }`}
       >
         {member.role.replace("Founder & CEO", "").trim() || member.role}
       </p>
@@ -194,13 +129,7 @@ function OrgCard({ member, isCEO = false }: OrgCardProps) {
       {/* Credentials */}
       {member.credential && (
         <p
-          style={{
-            fontSize: "10px",
-            color: "#9CA3AF",
-            margin: 0,
-            lineHeight: 1.4,
-            fontFamily: "Inter, sans-serif",
-          }}
+          className="text-[10px] text-gray-400 m-0 leading-relaxed"
         >
           {member.credential.split("|")[0].trim()}
         </p>
@@ -213,15 +142,8 @@ function OrgCard({ member, isCEO = false }: OrgCardProps) {
 
 function OrgChartView() {
   return (
-    <div
-      style={{
-        overflowX: "auto",
-        overflowY: "visible",
-        paddingBottom: "2rem",
-        paddingTop: "1rem",
-      }}
-    >
-      <div style={{ minWidth: "640px", paddingBottom: "1rem" }}>
+    <div className="overflow-x-auto overflow-y-visible pb-8 pt-4 w-full">
+      <div className="min-w-[768px] pb-4 flex justify-center mx-auto">
         <Tree
           lineWidth="2px"
           lineColor="#CBD5E1"
@@ -249,12 +171,12 @@ function GridView({ isInView }: GridViewProps) {
   return (
     <div>
       {/* Founder Feature Card */}
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-8 md:mb-10 px-4 md:px-0">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col md:flex-row items-center gap-8 bg-white p-10 rounded-2xl shadow-xl z-10 max-w-4xl w-full border-2 border-primary"
+          className="flex flex-col md:flex-row items-center gap-6 md:gap-8 bg-white p-6 md:p-10 rounded-2xl shadow-xl z-10 max-w-4xl w-full border-2 border-primary"
         >
           <ImageWithSkeleton
             src={teamData.photo!}
@@ -288,10 +210,13 @@ function GridView({ isInView }: GridViewProps) {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{
               delay: 0.2 + index * 0.15,
-              duration: 0.6,
-              ease: "easeOut",
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
             }}
-            className="bg-white p-8 rounded-xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+            whileHover={{ y: -4, scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
           >
             {/* Initials avatar */}
             <div className="flex justify-center mb-4">
@@ -342,20 +267,11 @@ export function TeamSection() {
             <button
               id="team-grid-view-btn"
               onClick={() => setView("grid")}
-              style={{
-                padding: "10px 24px",
-                fontWeight: 600,
-                fontSize: "14px",
-                fontFamily: "Inter, sans-serif",
-                cursor: "pointer",
-                border: "none",
-                transition: "all 0.2s",
-                background:
-                  view === "grid"
-                    ? "linear-gradient(135deg, #5343FD, #3FD7FF)"
-                    : "transparent",
-                color: view === "grid" ? "white" : "#6B7280",
-              }}
+              className={`px-6 py-2.5 font-semibold text-sm cursor-pointer border-none active:scale-[0.98] ${
+                view === "grid"
+                  ? "bg-gradient-to-br from-[#5343FD] to-[#3FD7FF] text-white"
+                  : "bg-transparent text-gray-500"
+              }`}
               aria-pressed={view === "grid"}
             >
               Grid View
@@ -364,20 +280,11 @@ export function TeamSection() {
             <button
               id="team-org-chart-view-btn"
               onClick={() => setView("org")}
-              style={{
-                padding: "10px 24px",
-                fontWeight: 600,
-                fontSize: "14px",
-                fontFamily: "Inter, sans-serif",
-                cursor: "pointer",
-                border: "none",
-                transition: "all 0.2s",
-                background:
-                  view === "org"
-                    ? "linear-gradient(135deg, #5343FD, #3FD7FF)"
-                    : "transparent",
-                color: view === "org" ? "white" : "#6B7280",
-              }}
+              className={`px-6 py-2.5 font-semibold text-sm cursor-pointer border-none active:scale-[0.98] ${
+                view === "org"
+                  ? "bg-gradient-to-br from-[#5343FD] to-[#3FD7FF] text-white"
+                  : "bg-transparent text-gray-500"
+              }`}
               aria-pressed={view === "org"}
             >
               Org Chart View

@@ -41,8 +41,7 @@ export function ProductionAssetsPage() {
         <h1 className="text-2xl font-semibold text-gray-900">Your Assets</h1>
         <Link
           to="/portal/production/submit"
-          className="px-4 py-2 rounded-md text-sm font-medium text-white"
-          style={{ backgroundColor: '#5343fd' }}
+          className="px-4 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-accent transition-colors duration-200 ease-out"
         >
           Submit new asset
         </Link>
@@ -55,12 +54,12 @@ export function ProductionAssetsPage() {
           placeholder="Filter by title…"
           value={titleFilter}
           onChange={(e) => setTitleFilter(e.target.value)}
-          className="border border-gray-300 rounded-md px-3 py-1.5 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="border border-gray-300 rounded-md px-3 py-1.5 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 ease-out"
         />
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value as AssetStatus | '')}
-          className="border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 ease-out"
         >
           {STATUS_OPTIONS.map((o) => (
             <option key={o.value} value={o.value}>
@@ -124,7 +123,7 @@ export function ProductionAssetsPage() {
                   <td className="px-4 py-3 text-right">
                     <Link
                       to={`/portal/production/assets/${asset.id}`}
-                      className="text-indigo-600 hover:text-indigo-800 font-medium"
+                      className="text-primary hover:text-accent font-medium transition-colors duration-200 ease-out"
                     >
                       View →
                     </Link>

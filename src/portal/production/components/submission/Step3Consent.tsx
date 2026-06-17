@@ -6,9 +6,12 @@ import { jurisdictionalBasisForCountry } from '../../lib/jurisdiction';
 import { CONSENT_TEXTS } from '../../consentTexts';
 import type { MeResponse, ProductionCompanyDetail } from '../../../shared/types';
 import type { WizardFormData } from '../../pages/SubmitPage';
+import { LegalDrawer } from '../../../../components/ui/LegalDrawer';
+import { PrivacyPolicyContent } from '../../../../components/PrivacyPolicyContent';
 
 export function Step3Consent() {
   const [expanded, setExpanded] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { register, formState: { errors } } = useFormContext<WizardFormData>();
 
   // Fetch /auth/me/ to get the production company ID
@@ -47,7 +50,7 @@ export function Step3Consent() {
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="w-full flex items-center justify-between px-4 py-3 text-sm text-indigo-600 hover:text-indigo-800 font-medium text-left"
+          className="w-full flex items-center justify-between px-4 py-3 text-sm text-primary hover:text-accent font-medium text-left transition-colors duration-200 ease-out"
         >
           <span>{expanded ? 'Hide consent terms' : 'View full consent terms'}</span>
           <span className="text-gray-400">{expanded ? '▲' : '▼'}</span>
@@ -67,16 +70,27 @@ export function Step3Consent() {
           id="consented"
           type="checkbox"
           {...register('consented')}
-          className="mt-0.5 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+          className="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary focus:ring-secondary focus:border-transparent transition-all duration-200 ease-out"
         />
         <label htmlFor="consented" className="text-sm text-gray-700 cursor-pointer">
           I have read the consent terms above and explicitly consent to the transfer
-          of my personal data as described.
+          of my personal data as described. I also agree to the{' '}
+          <button 
+            type="button" 
+            onClick={() => setIsDrawerOpen(true)}
+            className="text-primary hover:text-accent font-medium transition-colors duration-200 ease-out"
+          >
+            Privacy Policy
+          </button>.
         </label>
       </div>
       {errors.consented && (
         <p className="text-xs text-red-600">{errors.consented.message as string}</p>
       )}
+
+      <LegalDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+        <PrivacyPolicyContent />
+      </LegalDrawer>
     </div>
   );
 }

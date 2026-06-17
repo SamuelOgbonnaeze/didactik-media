@@ -4,7 +4,7 @@ export default function SustainabilityStrip() {
   return (
     <section
       id="sustainability"
-      className="py-16 md:py-24 bg-gradient-to-br from-green-50 to-emerald-50"
+      className="py-4 md:py-3 lg:py-12 bg-gradient-to-br from-green-50 to-emerald-50"
     >
       <div className="container">
         <motion.div
@@ -33,17 +33,17 @@ export default function SustainabilityStrip() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-4xl font-bold text-green-600 mb-2">90%</div>
-              <p className="text-gray-600">Carbon Reduction</p>
+            <div className="bg-white p-2 md:p-4 lg:p-6 rounded-lg shadow-md">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2">90%</div>
+              <p className="text-xs md:text-sm lg:text-base text-gray-600">Carbon Reduction</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-4xl font-bold text-green-600 mb-2">LTO</div>
-              <p className="text-gray-600">Cold Storage Technology</p>
+            <div className="bg-white p-2 md:p-4 lg:p-6 rounded-lg shadow-md">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2">LTO</div>
+              <p className="text-xs md:text-sm lg:text-base text-gray-600">Cold Storage Technology</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
-              <p className="text-gray-600">Years Archive Lifespan</p>
+            <div className="bg-white p-2 md:p-4 lg:p-6 rounded-lg shadow-md">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2">50+</div>
+              <p className="text-xs md:text-sm lg:text-base text-gray-600">Years Archive Lifespan</p>
             </div>
           </div>
         </motion.div>

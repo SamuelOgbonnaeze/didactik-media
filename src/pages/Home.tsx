@@ -49,7 +49,7 @@ export default function Home() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-white to-bg-alt flex items-center"
+        className="py-4 md:py-8 lg:py-12 bg-gradient-to-b from-white to-bg-alt flex items-center"
       >
         <div className="container relative flex items-start">
           <div className="flex-1 max-w-full md:max-w-2xl lg:max-w-3xl relative z-10">
@@ -98,26 +98,26 @@ export default function Home() {
               className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 pt-6 md:pt-8 border-t border-gray-200"
             >
               <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-1 md:mb-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-1 md:mb-2">
                   100+
                 </div>
-                <div className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">
+                <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
                   Hours Preserved
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-1 md:mb-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-1 md:mb-2">
                   15+
                 </div>
-                <div className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">
+                <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
                   Institutional Clients
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-1 md:mb-2">
+                <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-1 md:mb-2">
                   100%
                 </div>
-                <div className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">
+                <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
                   Broadcast-Ready
                 </div>
               </div>
@@ -151,9 +151,9 @@ export default function Home() {
       </motion.section>
 
       {/* Value Propositions */}
-      <section className="py-16 bg-white">
+      <section className="py-3 md:py-4 lg:py-6 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -177,16 +177,16 @@ export default function Home() {
       <SustainabilityStrip />
 
       {/* Featured In The News */}
-      <section className="py-16 bg-bg-alt">
+      <section className="py-4 md:py-8 lg:py-12 bg-bg-alt">
         <div className="container">
-          <div className="flex flex-col md:flex-row items-center gap-10">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
             {/* Image Side */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full md:w-1/2"
+              className="w-full lg:w-5/12"
             >
               <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
                 <ImageWithSkeleton
@@ -204,7 +204,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full md:w-1/2"
+              className="w-full lg:w-6/12 lg:ml-auto"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-semibold tracking-wide uppercase">

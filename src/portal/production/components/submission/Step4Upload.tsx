@@ -137,8 +137,7 @@ export function Step4Upload({ formData, onBack }: Props) {
         <p className="text-xs text-gray-400">Asset ID: {phase.assetId}</p>
         <a
           href="/portal/production/assets"
-          className="inline-block mt-2 px-5 py-2 rounded-md text-sm font-medium text-white"
-          style={{ backgroundColor: '#5343fd' }}
+          className="inline-block mt-2 px-5 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-accent transition-colors duration-200 ease-out"
         >
           View your assets
         </a>
@@ -159,7 +158,7 @@ export function Step4Upload({ formData, onBack }: Props) {
 
       {/* File picker */}
       <div
-        className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-indigo-400 transition-colors"
+        className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-secondary transition-colors duration-200 ease-out"
         onClick={() => !isWorking && inputRef.current?.click()}
       >
         <input
@@ -183,7 +182,7 @@ export function Step4Upload({ formData, onBack }: Props) {
               {formatBytes(file.size)} · {file.type || 'unknown type'}
             </p>
             {!isWorking && (
-              <p className="text-xs text-indigo-500 mt-2">Click to change file</p>
+              <p className="text-xs text-primary mt-2">Click to change file</p>
             )}
           </div>
         ) : (
@@ -203,8 +202,8 @@ export function Step4Upload({ formData, onBack }: Props) {
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div
-              className="h-2 rounded-full transition-all duration-100"
-              style={{ width: `${phase.percent}%`, backgroundColor: '#5343fd' }}
+              className="h-2 rounded-full transition-all duration-100 bg-primary"
+              style={{ width: `${phase.percent}%` }}
             />
           </div>
         </div>
@@ -241,8 +240,7 @@ export function Step4Upload({ formData, onBack }: Props) {
           type="button"
           onClick={handleSubmit}
           disabled={!file || isWorking}
-          className="px-5 py-2 rounded-md text-sm font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed"
-          style={{ backgroundColor: '#5343fd' }}
+          className="px-5 py-2 rounded-md text-sm font-medium text-white disabled:opacity-40 disabled:cursor-not-allowed bg-primary hover:bg-accent transition-colors duration-200 ease-out"
         >
           {isWorking ? 'Working…' : 'Submit and upload'}
         </button>

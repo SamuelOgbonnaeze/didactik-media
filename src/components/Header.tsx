@@ -29,16 +29,15 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-8">
+          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-                  location.pathname === link.href
-                    ? "text-secondary"
-                    : "text-gray-700 hover:text-secondary"
-                }`}
+                className={`text-sm font-medium uppercase tracking-wide transition-colors ${location.pathname === link.href
+                  ? "text-secondary"
+                  : "text-gray-700 hover:text-secondary"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -48,7 +47,7 @@ export default function Header() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -86,7 +85,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-white border-t border-gray-200"
+            className="lg:hidden overflow-hidden bg-white border-t border-gray-200"
           >
             <div className="container py-4">
               {navLinks.map((link, index) => (
@@ -99,11 +98,10 @@ export default function Header() {
                   <Link
                     to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block py-3 text-sm font-medium uppercase tracking-wide ${
-                      location.pathname === link.href
-                        ? "text-secondary"
-                        : "text-gray-700"
-                    }`}
+                    className={`block py-3 text-sm font-medium uppercase tracking-wide ${location.pathname === link.href
+                      ? "text-secondary"
+                      : "text-gray-700"
+                      }`}
                   >
                     {link.label}
                   </Link>

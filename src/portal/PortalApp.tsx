@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider, useAuth } from './shared/AuthContext';
 import { ProtectedRoute } from './shared/ProtectedRoute';
@@ -6,6 +6,7 @@ import { DashboardRedirect } from './shared/DashboardRedirect';
 import { LoginPage } from './shared/LoginPage';
 import { PortalLayout } from './shared/PortalLayout';
 import { queryClient } from './shared/queryClient';
+import { RecentlyViewedProvider } from './broadcaster/RecentlyViewedContext';
 import { BroadcasterDashboardPage } from './broadcaster/pages/DashboardPage';
 import { BroadcasterDiscoverPage } from './broadcaster/pages/DiscoverPage';
 import { BroadcasterAssetDetailPage } from './broadcaster/pages/AssetDetailPage';
@@ -35,7 +36,7 @@ function PortalRoutes() {
           path="production/dashboard"
           element={
             <ProtectedRoute isAllowed={isPC}>
-              <Navigate to="/portal/production/assets" replace />
+              <ProductionDashboardPage />
             </ProtectedRoute>
           }
         />
@@ -69,7 +70,7 @@ function PortalRoutes() {
           path="broadcaster/dashboard"
           element={
             <ProtectedRoute isAllowed={isBC}>
-              <Navigate to="/portal/broadcaster/discover" replace />
+              <BroadcasterDashboardPage />
             </ProtectedRoute>
           }
         />
@@ -90,23 +91,6 @@ function PortalRoutes() {
           }
         />
 
-        {/* Legacy dashboard placeholder routes */}
-        <Route
-          path="production/dashboard-old"
-          element={
-            <ProtectedRoute isAllowed={isPC}>
-              <ProductionDashboardPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="broadcaster/dashboard-old"
-          element={
-            <ProtectedRoute isAllowed={isBC}>
-              <BroadcasterDashboardPage />
-            </ProtectedRoute>
-          }
-        />
       </Route>
     </Routes>
   );
@@ -116,7 +100,9 @@ export default function PortalApp() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <PortalRoutes />
+        <RecentlyViewedProvider>
+          <PortalRoutes />
+        </RecentlyViewedProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

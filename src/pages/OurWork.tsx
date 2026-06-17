@@ -61,12 +61,12 @@ export default function OurWork() {
         <link rel="canonical" href="https://www.didactikmedia.com/our-work" />
       </Helmet>
       {/* Header */}
-      <section className="py-16 bg-gradient-to-b from-bg-alt to-white">
+      <section className="py-4 lg:py-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-serif font-bold mb-4 max-w-3xl"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 max-w-3xl leading-tight"
           >
             From Chaos to{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
@@ -77,9 +77,9 @@ export default function OurWork() {
       </section>
 
       {/* Process Flow */}
-      <section className="py-16 bg-white">
+      <section className="py-4 lg:py-16 bg-white">
         <div className="container">
-          <div className="space-y-10">
+          <div className="space-y-8 md:space-y-10">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -87,16 +87,16 @@ export default function OurWork() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col md:flex-row items-start gap-6"
+                className="flex flex-col md:flex-row items-start gap-3 md:gap-6"
               >
-                <div className="text-6xl md:text-8xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text font-serif leading-none">
+                <div className="text-5xl md:text-7xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20 bg-clip-text font-serif leading-none">
                   {step.number}
                 </div>
-                <div className="flex-1 pt-2">
-                  <h3 className="text-3xl font-serif font-semibold mb-2 text-primary">
+                <div className="flex-1 pt-1 md:pt-2">
+                  <h3 className="text-2xl md:text-3xl font-serif font-semibold mb-2 text-primary">
                     {step.title}
                   </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-600 leading-normal md:leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -107,12 +107,12 @@ export default function OurWork() {
       </section>
 
       {/* Services */}
-      <section className="py-16 bg-bg-alt">
+      <section className="py-4 lg:py-16 bg-bg-alt">
         <div className="container">
-          <h2 className="text-4xl font-serif font-bold mb-8 text-primary">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 md:mb-8 text-primary">
             Our Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}

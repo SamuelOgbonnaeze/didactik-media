@@ -7,12 +7,12 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-12 mt-auto">
+    <footer className="bg-[#1a1a1a] text-white py-12 mt-auto">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-serif font-bold mb-4">
+            <h3 className="text-xl font-serif font-bold mb-4 ">
               Didactik Media
             </h3>
             <p className="text-gray-500 text-sm">
@@ -27,16 +27,21 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-500">
               <p>
                 <a
-                  href="mailto:emem@didactikmedia.com"
+                  href="mailto:admin@didactikmedia.com"
                   className="hover:text-secondary transition-colors flex items-center gap-2"
                 >
                   <FaEnvelope className="text-secondary" />
-                  emem@didactikmedia.com
+                  admin@didactikmedia.com
                 </a>
               </p>
               <p className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-secondary" />
                 Lagos, Nigeria
+              </p>
+              <p className="mt-4 pt-2 border-t border-gray-700/50">
+                <a href="/privacy" className="hover:text-secondary transition-colors">
+                  Privacy Policy
+                </a>
               </p>
             </div>
           </nav>
@@ -56,7 +61,7 @@ export default function Footer() {
                   Didactik Media
                 </a>
               </p>
-              
+
               <p>
                 <a
                   href="https://instagram.com/didactikmedia"
