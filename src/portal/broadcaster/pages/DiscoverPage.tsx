@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { apiGet } from '../../shared/apiHelpers';
@@ -9,6 +10,7 @@ import type { AssetListItem, PaginatedResponse, SearchAsset } from '../../shared
 export function BroadcasterDiscoverPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchPage, setSearchPage] = useState<string | null>(null);
+  const [isFocused, setIsFocused] = useState(false);
 
   const isSearching = searchTerm.trim().length > 0;
 
@@ -17,6 +19,13 @@ export function BroadcasterDiscoverPage() {
     queryKey: ['broadcaster-assets'],
     queryFn: () => apiGet<AssetListItem[]>('/api/v1/assets/'),
     enabled: !isSearching,
+  });
+
+  // Suggest dropdown
+  const { data: suggestions } = useQuery<string[]>({
+    queryKey: ['broadcaster-suggest', searchTerm],
+    queryFn: () => apiGet<string[]>(`/api/v1/suggest/?q=${encodeURIComponent(searchTerm.trim())}`),
+    enabled: isSearching && isFocused,
   });
 
   // Search: paginated results via the search endpoint
@@ -38,21 +47,60 @@ export function BroadcasterDiscoverPage() {
     setSearchPage(null); // reset to first page on new query
   }
 
+  function handleSuggestionClick(suggestion: string) {
+    setSearchTerm(suggestion);
+    setSearchPage(null);
+    setIsFocused(false);
+  }
+
   return (
     <div>
       <h1 className="text-2xl font-semibold text-gray-900 mb-6">Discover Content</h1>
 
       {/* Search */}
-      <div className="mb-4">
-        <input
-          type="search"
-          placeholder="Search titles, descriptions, taxonomy tags…"
-          value={searchTerm}
-          onChange={(e) => handleSearchChange(e.target.value)}
-          className="border border-gray-300 rounded-md px-3 py-2 text-sm w-80 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-        />
+      <div className="mb-4 flex items-center relative z-10 w-80">
+        <div className="relative w-full">
+          <input
+            type="search"
+            placeholder="Search titles, descriptions, taxonomy tags…"
+            value={searchTerm}
+            onChange={(e) => handleSearchChange(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => {
+              // Delay hiding to allow click event on suggestions
+              setTimeout(() => setIsFocused(false), 200);
+            }}
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-shadow duration-200"
+          />
+          
+          <AnimatePresence>
+            {isFocused && suggestions && suggestions.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: -5, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -5, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute top-full left-0 w-full mt-2 bg-white rounded-lg shadow-xl ring-1 ring-black/5 overflow-hidden origin-top"
+              >
+                <ul className="py-1">
+                  {suggestions.map((suggestion, index) => (
+                    <li key={index}>
+                      <button
+                        type="button"
+                        onClick={() => handleSuggestionClick(suggestion)}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-900 transition-colors duration-150"
+                      >
+                        {suggestion}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         {isSearching && searchResults && (
-          <span className="ml-3 text-sm text-gray-400">
+          <span className="ml-3 text-sm text-gray-400 whitespace-nowrap">
             {searchResults.count} result{searchResults.count !== 1 ? 's' : ''}
           </span>
         )}
