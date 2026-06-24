@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { PanInfo } from 'framer-motion';
 
 interface LegalDrawerProps {
   isOpen: boolean;
@@ -17,7 +18,7 @@ export function LegalDrawer({ isOpen, onClose, children }: LegalDrawerProps) {
   };
 
   // Handle drag to dismiss
-  const handleDragEnd = (_event: any, info: any) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const threshold = 100;
     const velocity = info.velocity.y;
     

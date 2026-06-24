@@ -16,13 +16,18 @@ export function decodeToken(token: string): JwtPayload {
 }
 
 export async function silentRefresh(): Promise<string | null> {
-  const response = await fetch('/api/v1/auth/refresh/', {
-    method: 'POST',
-    credentials: 'include',
-  });
-  if (!response.ok) return null;
-  const data = await response.json() as { access: string };
-  return data.access;
+  try {
+    const response = await fetch('/api/v1/auth/refresh/', {
+      method: 'POST',
+      credentials: 'include',
+    });
+    if (!response.ok) return null;
+    const data = await response.json() as { access: string };
+    return data.access;
+  } catch (error) {
+    console.error('Silent refresh failed:', error);
+    return null;
+  }
 }
 
 export async function postLogin(

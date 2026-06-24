@@ -22,11 +22,7 @@ const wizardSchema = z.object({
     ['feature_film', 'short_film', 'documentary', 'tv_episode', 'music_video', 'broadcast_recording', 'interview', 'other'],
     { error: 'Select an asset type' },
   ),
-  production_year: z
-    .preprocess(
-      (v) => (v === '' || v === undefined || v === null || Number.isNaN(v) ? undefined : Number(v)),
-      z.number().int().min(1900).max(2030).optional(),
-    ),
+  production_year: z.union([z.number().int().min(1900).max(2030), z.nan()]).optional(),
   description: z.string().max(5000).optional(),
   // Step 2 — Submitter attestation
   submitter_name: z.string().min(1, 'Your name is required').max(300),
@@ -57,7 +53,7 @@ export function ProductionSubmitPage() {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
 
   const methods = useForm<WizardFormData>({
-    resolver: zodResolver(wizardSchema) as any,
+    resolver: zodResolver(wizardSchema),
     defaultValues: {
       title: '',
       original_title: '',

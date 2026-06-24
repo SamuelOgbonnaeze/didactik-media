@@ -36,14 +36,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Attempt silent refresh on mount so a page reload restores the session
     // if the HttpOnly refresh cookie is still valid.
-    silentRefresh().then((token) => {
-      if (token) {
-        setAccessToken(token);
-        setState({ accessToken: token, user: decodeToken(token), loading: false });
-      } else {
+    silentRefresh()
+      .then((token) => {
+        if (token) {
+          setAccessToken(token);
+          setState({ accessToken: token, user: decodeToken(token), loading: false });
+        } else {
+          setState({ accessToken: null, user: null, loading: false });
+        }
+      })
+      .catch((error) => {
+        console.error('Silent refresh failed in AuthProvider:', error);
         setState({ accessToken: null, user: null, loading: false });
-      }
-    });
+      });
   }, []);
 
   function login(token: string) {
@@ -63,10 +68,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth(): AuthContextValue {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error('useAuth must be used inside AuthProvider');
   return ctx;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { getAccessToken };
