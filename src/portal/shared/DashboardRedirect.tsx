@@ -15,6 +15,20 @@ export function DashboardRedirect() {
     return <Navigate to="/portal/production/dashboard" replace />;
   }
 
-  // admin_staff or unknown role — send to Django admin
-  return <Navigate to="/admin/" replace />;
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-bg-alt px-4">
+      <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-8 text-center">
+        <h2 className="text-lg font-semibold text-gray-900 mb-2">Admin Access Required</h2>
+        <p className="text-sm text-gray-500 mb-6">
+          Staff and administrators must use the Django admin backend to manage content.
+        </p>
+        <a 
+          href={import.meta.env.DEV ? 'http://localhost:8000/admin/' : '/admin/'}
+          className="cta-button inline-flex w-full justify-center border-none outline-none text-sm py-3"
+        >
+          Go to Admin Dashboard
+        </a>
+      </div>
+    </div>
+  );
 }

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import type { AssetListItem } from '../shared/types';
 
 interface RecentlyViewedContextValue {
@@ -11,13 +11,13 @@ const RecentlyViewedContext = createContext<RecentlyViewedContextValue | undefin
 export function RecentlyViewedProvider({ children }: { children: ReactNode }) {
   const [recentlyViewed, setRecentlyViewed] = useState<AssetListItem[]>([]);
 
-  const registerView = (asset: AssetListItem) => {
+  const registerView = useCallback((asset: AssetListItem) => {
     setRecentlyViewed((prev) => {
       // Remove if it already exists, then prepend it so it's most recent
       const filtered = prev.filter((a) => a.id !== asset.id);
       return [asset, ...filtered].slice(0, 10); // Keep max 10
     });
-  };
+  }, []);
 
   return (
     <RecentlyViewedContext.Provider value={{ recentlyViewed, registerView }}>

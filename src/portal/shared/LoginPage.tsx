@@ -100,6 +100,26 @@ export function LoginPage() {
             {submitting ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
+
+        <div className="mt-6">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-gray-500">Or</span>
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <a
+              href={import.meta.env.DEV ? 'http://localhost:8000/admin/' : '/admin/'}
+              className="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-all duration-200"
+            >
+              Sign in as Admin
+            </a>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
