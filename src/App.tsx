@@ -8,7 +8,6 @@ import Team from "./pages/Team";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import PortalApp from "./portal/PortalApp";
 
 function MarketingLayout() {
   return (
@@ -34,7 +33,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
       </Route>
-      <Route path="/portal/*" element={<PortalApp />} />
     </Routes>
   );
 }

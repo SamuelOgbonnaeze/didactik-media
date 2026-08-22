@@ -29,12 +29,6 @@ const teamData: TeamMember = {
       credential: "B.A., Ekiti State University",
     },
     {
-      id: "archivist-2",
-      name: "Daphne Soyinka",
-      role: "Archivist & Client Relations",
-      credential: "B.A., Federal University of Agriculture, Abeokuta",
-    },
-    {
       id: "archivist-3",
       name: "Tamaraebiekiye Bestman",
       role: "Archivist & Institutional Liaison",
@@ -202,7 +196,7 @@ function GridView({ isInView }: GridViewProps) {
       </div>
 
       {/* Team Members Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {allMembers.slice(1).map((member, index) => (
           <motion.div
             key={member.id}

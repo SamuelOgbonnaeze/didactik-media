@@ -10,7 +10,7 @@ export function PrivacyPolicyContent() {
         <h3 className="text-2xl font-serif font-semibold tracking-tight text-balance text-gray-900">1. Introduction & Data Controller</h3>
         <p>
           Didactik Media ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. 
-          This Privacy Policy explains how we collect, use, and safeguard your information when you use our Production Company Portal.
+          This Privacy Policy explains how we collect, use, and safeguard your information when you use our platform and services.
           If you have any questions about this policy or your data, please contact us at <a href="mailto:privacy@didactikmedia.com" className="text-secondary hover:text-primary transition-colors font-medium">privacy@didactikmedia.com</a>.
         </p>
       </section>
@@ -23,7 +23,7 @@ export function PrivacyPolicyContent() {
         <ul className="list-disc pl-5 space-y-2 text-gray-600">
           <li><strong>Identity Data:</strong> First name, last name, and organization details.</li>
           <li><strong>Contact Data:</strong> Email address and phone number.</li>
-          <li><strong>Content & Metadata:</strong> Any media files, descriptions, and metadata you upload through the portal.</li>
+          <li><strong>Content & Metadata:</strong> Any media files, descriptions, and metadata you upload to our platform.</li>
           <li><strong>Technical Data:</strong> IP address, browser type and version, time zone setting, and operating system.</li>
         </ul>
       </section>
@@ -34,9 +34,9 @@ export function PrivacyPolicyContent() {
           We will only use your personal data for the following purposes:
         </p>
         <ul className="list-disc pl-5 space-y-2 text-gray-600">
-          <li>To register you as a new user and manage your portal account.</li>
+          <li>To register you as a new user and manage your account.</li>
           <li>To process, store, and manage the media assets you submit.</li>
-          <li>To communicate with you regarding portal updates, technical issues, or submission statuses.</li>
+          <li>To communicate with you regarding platform updates, technical issues, or submission statuses.</li>
           <li>To comply with legal and regulatory obligations.</li>
         </ul>
       </section>
@@ -45,7 +45,7 @@ export function PrivacyPolicyContent() {
         <h3 className="text-2xl font-serif font-semibold tracking-tight text-balance text-gray-900">4. Data Processors & Cross-Border Transfers</h3>
         <p>
           To provide our services, we utilize third-party data processors. Notably, media assets and associated metadata 
-          submitted through the portal are securely transferred to and stored by <strong>Backblaze, Inc. (Backblaze B2)</strong>, 
+          submitted through our platform are securely transferred to and stored by <strong>Backblaze, Inc. (Backblaze B2)</strong>, 
           which operates servers located in the United States. 
         </p>
         <p>
@@ -74,7 +74,7 @@ export function PrivacyPolicyContent() {
       <section className="space-y-4">
         <h3 className="text-2xl font-serif font-semibold tracking-tight text-balance text-gray-900">6. Contact & Support</h3>
         <p>
-          For general portal support, account onboarding, or technical inquiries, please contact our team at <a href="mailto:admin@didactikmedia.com" className="text-secondary hover:text-primary transition-colors font-medium">admin@didactikmedia.com</a>.
+          For general support, account onboarding, or technical inquiries, please contact our team at <a href="mailto:admin@didactikmedia.com" className="text-secondary hover:text-primary transition-colors font-medium">admin@didactikmedia.com</a>.
         </p>
       </section>
     </div>
