@@ -145,7 +145,7 @@ export default function Technology() {
             </h2>
             <p className="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto">
               We combine Whisper's speech-to-text with expert Nigerian
-              archivists to ensure 100% cultural accuracy.
+              archivists to guarantee cultural accuracy.
             </p>
 
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
@@ -168,7 +168,7 @@ export default function Technology() {
                   <p className="text-gray-700 leading-relaxed">
                     AI provides the first pass. Nigerian archivists with deep
                     cultural knowledge verify, correct, and enrich the metadata.
-                    This ensures accuracy while maintaining efficiency.
+                    This balances speed with precision.
                   </p>
                 </div>
               </div>

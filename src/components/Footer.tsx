@@ -12,12 +12,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-serif font-bold mb-4 ">
+            <h3 className="text-xl font-serif font-bold mb-4">
               Didactik Media
             </h3>
             <p className="text-gray-500 text-sm">
-              Preserving Africa's audiovisual heritage. Building essential
-              archival infrastructure for the continent's creative economy.
+              The operating system for African creative memory.
+              Preserve. Discover. Monetize.
             </p>
           </div>
 
@@ -27,11 +27,11 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-500">
               <p>
                 <a
-                  href="mailto:admin@didactikmedia.com"
+                  href="mailto:onboarding@didactikmedia.com"
                   className="hover:text-secondary transition-colors flex items-center gap-2"
                 >
                   <FaEnvelope className="text-secondary" />
-                  admin@didactikmedia.com
+                  onboarding@didactikmedia.com
                 </a>
               </p>
               <p className="flex items-center gap-2">

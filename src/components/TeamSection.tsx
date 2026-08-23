@@ -11,6 +11,7 @@ interface TeamMember {
   role: string;
   credential?: string;
   photo?: string;
+  tier?: "leadership" | "operations";
   children?: TeamMember[];
 }
 
@@ -19,20 +20,37 @@ const teamData: TeamMember = {
   name: "Ememobong Attah",
   role: "Founder & CEO",
   credential:
-    "LL.B Law, Babcock University | IP & Media Strategist | CP Innovate Grant Finalist 2024",
+    "LL.B Law, Babcock University | IP & Media Strategist | CP Innovate Grant Finalist 2024 | Deji Alli ARM Young Talent Award — Top 63 High-Potential Founders, 2026",
   photo: "/images/founder-img-1.jpeg",
   children: [
+    {
+      id: "engineer",
+      name: "Samuel Ogbonna-Eze",
+      role: "Software Engineer",
+      credential: "Moniepoint — Scalable systems for millions of users",
+      tier: "leadership",
+    },
+    {
+      id: "product",
+      name: "Tobi Oladapo",
+      role: "Product Strategist",
+      credential:
+        "Former Fintech Head of Product (70,000+ users) | Authored the DidaktikOS architecture",
+      tier: "leadership",
+    },
     {
       id: "archivist-1",
       name: "Aderonke Awolaja",
       role: "Archivist & Process Coordinator",
       credential: "B.A., Ekiti State University",
+      tier: "operations",
     },
     {
       id: "archivist-3",
       name: "Tamaraebiekiye Bestman",
       role: "Archivist & Institutional Liaison",
       credential: "LL.B Law, Babcock University",
+      tier: "operations",
     },
   ],
 };
@@ -57,44 +75,61 @@ interface OrgCardProps {
 
 function OrgCard({ member, isCEO = false }: OrgCardProps) {
   const [imgError, setImgError] = useState(false);
+  const isLeadership = member.tier === "leadership";
+
+  const cardClass = isCEO
+    ? "rounded-2xl border-2 border-primary shadow-[0_8px_32px_rgba(83,67,253,0.18)] hover:shadow-[0_12px_40px_rgba(83,67,253,0.28)] hover:-translate-y-1 px-7 py-5 min-w-[220px] max-w-[280px]"
+    : isLeadership
+    ? "rounded-xl border-2 border-primary/40 bg-primary/5 shadow-[0_4px_20px_rgba(83,67,253,0.12)] hover:shadow-[0_8px_28px_rgba(83,67,253,0.2)] hover:-translate-y-1 px-5 py-4 min-w-[170px] max-w-[230px]"
+    : "rounded-xl border border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.13)] hover:-translate-y-0.5 px-4 py-3 min-w-[150px] max-w-[200px]";
+
+  const avatarSize = isCEO
+    ? "w-[72px] h-[72px] border-[3px] border-[#5343FD]"
+    : isLeadership
+    ? "w-[58px] h-[58px] border-2 border-primary/50"
+    : "w-[48px] h-[48px] border-2 border-slate-300";
+
+  const avatarBg = isCEO
+    ? "from-[#5343FD] to-[#3FD7FF]"
+    : isLeadership
+    ? "from-primary to-secondary"
+    : "from-slate-300 to-slate-400";
 
   return (
     <div
-      className={`inline-block bg-white text-center relative cursor-default ${
-        isCEO 
-          ? "rounded-2xl border-2 border-primary shadow-[0_8px_32px_rgba(83,67,253,0.18)] hover:shadow-[0_12px_40px_rgba(83,67,253,0.28)] hover:-translate-y-1 px-7 py-5 min-w-[220px] max-w-[280px]" 
-          : "rounded-xl border border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.13)] hover:-translate-y-0.5 px-5 py-3.5 min-w-[160px] max-w-[220px]"
-      }`}
+      className={`inline-block bg-white text-center relative cursor-default ${cardClass}`}
       style={{
-        transition: "box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        transition:
+          "box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
       }}
     >
-      {/* CEO gradient badge */}
+      {/* CEO badge */}
       {isCEO && (
-        <div
-          className="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-br from-[#5343FD] to-[#3FD7FF] text-white text-[10px] font-bold tracking-[0.08em] px-3 py-[3px] rounded-b-lg uppercase"
-        >
+        <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-br from-[#5343FD] to-[#3FD7FF] text-white text-[10px] font-bold tracking-[0.08em] px-3 py-[3px] rounded-b-lg uppercase">
           Founder & CEO
         </div>
       )}
 
+      {/* Leadership tier badge */}
+      {isLeadership && !isCEO && (
+        <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-primary/10 text-primary text-[9px] font-bold tracking-[0.06em] px-2.5 py-[2px] rounded-b-md uppercase border border-primary/20">
+          Leadership
+        </div>
+      )}
+
       {/* Avatar */}
-      <div className={`flex justify-center mb-2.5 ${isCEO ? "mt-4.5" : "mt-0"}`}>
+      <div className={`flex justify-center mb-2 ${isCEO ? "mt-5" : isLeadership ? "mt-4" : "mt-1"}`}>
         {member.photo && !imgError ? (
           <img
             src={member.photo}
             alt={member.name}
             onError={() => setImgError(true)}
-            className={`rounded-full object-cover shrink-0 ${
-              isCEO ? "w-[72px] h-[72px] border-[3px] border-[#5343FD]" : "w-[52px] h-[52px] border-2 border-slate-300"
-            }`}
+            className={`rounded-full object-cover shrink-0 ${avatarSize}`}
           />
         ) : (
           <div
-            className={`flex items-center justify-center rounded-full text-white font-bold shrink-0 ${
-              isCEO 
-                ? "w-[72px] h-[72px] text-2xl bg-gradient-to-br from-[#5343FD] to-[#3FD7FF]" 
-                : "w-[52px] h-[52px] text-lg bg-gradient-to-br from-slate-300 to-slate-400"
+            className={`flex items-center justify-center rounded-full text-white font-bold shrink-0 bg-gradient-to-br ${avatarBg} ${
+              isCEO ? "w-[72px] h-[72px] text-2xl" : isLeadership ? "w-[58px] h-[58px] text-xl" : "w-[48px] h-[48px] text-lg"
             }`}
           >
             {getInitials(member.name)}
@@ -103,28 +138,18 @@ function OrgCard({ member, isCEO = false }: OrgCardProps) {
       </div>
 
       {/* Name */}
-      <p
-        className={`font-bold text-gray-900 m-0 mb-1 leading-snug ${
-          isCEO ? "text-[15px]" : "text-[13px]"
-        }`}
-      >
+      <p className={`font-bold text-gray-900 m-0 mb-1 leading-snug ${isCEO ? "text-[15px]" : isLeadership ? "text-[13px]" : "text-[12px]"}`}>
         {member.name}
       </p>
 
       {/* Role */}
-      <p
-        className={`text-[#5343FD] font-medium m-0 mb-1 ${
-          isCEO ? "text-xs" : "text-[11px]"
-        }`}
-      >
+      <p className={`text-[#5343FD] font-medium m-0 mb-1 ${isCEO ? "text-xs" : "text-[11px]"}`}>
         {member.role.replace("Founder & CEO", "").trim() || member.role}
       </p>
 
-      {/* Credentials */}
+      {/* Credential */}
       {member.credential && (
-        <p
-          className="text-[10px] text-gray-400 m-0 leading-relaxed"
-        >
+        <p className="text-[10px] text-gray-400 m-0 leading-relaxed">
           {member.credential.split("|")[0].trim()}
         </p>
       )}
@@ -135,6 +160,9 @@ function OrgCard({ member, isCEO = false }: OrgCardProps) {
 // ─── Org Chart View ───────────────────────────────────────────────────────────
 
 function OrgChartView() {
+  const leadershipMembers = teamData.children?.filter((m) => m.tier === "leadership") ?? [];
+  const operationsMembers = teamData.children?.filter((m) => m.tier === "operations") ?? [];
+
   return (
     <div className="overflow-x-auto overflow-y-visible pb-8 pt-4 w-full">
       <div className="min-w-[768px] pb-4 flex justify-center mx-auto">
@@ -144,7 +172,12 @@ function OrgChartView() {
           lineBorderRadius="10px"
           label={<OrgCard member={teamData} isCEO />}
         >
-          {teamData.children?.map((child) => (
+          {/* Leadership tier first (visually senior) */}
+          {leadershipMembers.map((child) => (
+            <TreeNode key={child.id} label={<OrgCard member={child} />} />
+          ))}
+          {/* Operations tier below */}
+          {operationsMembers.map((child) => (
             <TreeNode key={child.id} label={<OrgCard member={child} />} />
           ))}
         </Tree>
@@ -160,7 +193,8 @@ interface GridViewProps {
 }
 
 function GridView({ isInView }: GridViewProps) {
-  const allMembers = [teamData, ...(teamData.children ?? [])];
+  const leadershipMembers = teamData.children?.filter((m) => m.tier === "leadership") ?? [];
+  const operationsMembers = teamData.children?.filter((m) => m.tier === "operations") ?? [];
 
   return (
     <div>
@@ -185,53 +219,79 @@ function GridView({ isInView }: GridViewProps) {
             <h3 className="text-3xl font-serif font-bold mb-2 text-gray-900">
               {teamData.name}
             </h3>
-            <p className="text-xl text-primary font-medium mb-3">
-              {teamData.role}
-            </p>
-            <p className="text-base text-gray-600 font-medium">
-              {teamData.credential}
-            </p>
+            <p className="text-xl text-primary font-medium mb-3">{teamData.role}</p>
+            <p className="text-base text-gray-600 font-medium">{teamData.credential}</p>
           </div>
         </motion.div>
       </div>
 
-      {/* Team Members Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {allMembers.slice(1).map((member, index) => (
-          <motion.div
-            key={member.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{
-              delay: 0.2 + index * 0.15,
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-            }}
-            whileHover={{ y: -4, scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-          >
-            {/* Initials avatar */}
-            <div className="flex justify-center mb-4">
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl"
-                style={{
-                  background: "linear-gradient(135deg, #CBD5E1, #94A3B8)",
-                }}
-              >
-                {getInitials(member.name)}
+      {/* Leadership Team */}
+      <div className="mb-8 max-w-4xl mx-auto">
+        <div className="flex items-center gap-3 mb-4 px-1">
+          <span className="text-xs font-bold tracking-widest uppercase text-primary">Leadership Team</span>
+          <div className="flex-1 h-px bg-primary/20" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {leadershipMembers.map((member, index) => (
+            <motion.div
+              key={member.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.2 + index * 0.15, type: "spring", stiffness: 100, damping: 15 }}
+              whileHover={{ y: -4, scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white p-6 md:p-8 rounded-xl border-2 border-primary/20 bg-primary/5 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            >
+              <div className="flex justify-center mb-4">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl"
+                  style={{ background: "linear-gradient(135deg, #5343FD, #3FD7FF)" }}
+                >
+                  {getInitials(member.name)}
+                </div>
               </div>
-            </div>
-            <h4 className="text-xl font-bold mb-2 text-gray-900">
-              {member.name}
-            </h4>
-            <p className="text-primary font-medium mb-2">{member.role}</p>
-            <p className="text-sm text-gray-600 font-medium">
-              {member.credential}
-            </p>
-          </motion.div>
-        ))}
+              <span className="inline-block text-[10px] font-bold tracking-widest uppercase bg-primary/10 text-primary px-2 py-0.5 rounded-full mb-2 border border-primary/20">
+                Leadership
+              </span>
+              <h4 className="text-xl font-bold mb-1 text-gray-900">{member.name}</h4>
+              <p className="text-primary font-medium mb-2">{member.role}</p>
+              <p className="text-sm text-gray-600 font-medium">{member.credential}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Operations Team */}
+      <div className="max-w-4xl mx-auto">
+        <div className="flex items-center gap-3 mb-4 px-1">
+          <span className="text-xs font-bold tracking-widest uppercase text-gray-400">Operations Team</span>
+          <div className="flex-1 h-px bg-gray-200" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {operationsMembers.map((member, index) => (
+            <motion.div
+              key={member.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.4 + index * 0.15, type: "spring", stiffness: 100, damping: 15 }}
+              whileHover={{ y: -4, scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            >
+              <div className="flex justify-center mb-4">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl"
+                  style={{ background: "linear-gradient(135deg, #CBD5E1, #94A3B8)" }}
+                >
+                  {getInitials(member.name)}
+                </div>
+              </div>
+              <h4 className="text-xl font-bold mb-2 text-gray-900">{member.name}</h4>
+              <p className="text-primary font-medium mb-2">{member.role}</p>
+              <p className="text-sm text-gray-600 font-medium">{member.credential}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -247,9 +307,7 @@ export function TeamSection() {
   return (
     <section ref={ref} className="py-12 bg-bg-alt">
       <div className="container">
-        <h2 className="text-4xl font-serif font-bold mb-6 text-center">
-          Our Team
-        </h2>
+        <h2 className="text-4xl font-serif font-bold mb-6 text-center">Our Team</h2>
 
         {/* ── Toggle Buttons ── */}
         <div className="flex justify-center mb-8">
@@ -308,12 +366,8 @@ export function TeamSection() {
                     d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2h2a2 2 0 012 2v2zm0-10a2 2 0 01-2-2H5a2 2 0 01-2 2v2a2 2 0 002 2h2a2 2 0 002-2V7zm6 10a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2a2 2 0 012-2h2a2 2 0 012 2v2z"
                   />
                 </svg>
-                <p className="font-semibold text-gray-700">
-                  Org chart available on larger screens
-                </p>
-                <p className="text-sm text-gray-400">
-                  Switch to Grid View to see the team on mobile.
-                </p>
+                <p className="font-semibold text-gray-700">Org chart available on larger screens</p>
+                <p className="text-sm text-gray-400">Switch to Grid View to see the team on mobile.</p>
               </div>
             </div>
 

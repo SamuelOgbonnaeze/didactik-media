@@ -22,112 +22,98 @@ export default function Home() {
     visible: { opacity: 1, y: 0 },
   };
 
-  const values = [
-    {
-      title: "Preservation",
-      description: "Rescue and digitize at-risk film & broadcast archives",
-    },
-    {
-      title: "Knowledge",
-      description: "Apply intelligent, culturally-informed cataloging",
-    },
-    {
-      title: "Access",
-      description: "Enable discovery, distribution, and new revenue",
-    },
-  ];
-
   return (
     <div>
       <Helmet>
-        <title>Didactik Media — Securing Africa's Story</title>
-        <meta name="description" content="The operating system for Africa's audiovisual heritage. AI-powered archival infrastructure for broadcasters and cultural institutions." />
+        <title>Didactik Media — Preserve. Discover. Monetize.</title>
+        <meta
+          name="description"
+          content="The operating system for African creative memory. We connect Africa's filmmakers directly with broadcasters — free to upload, AI-tagged, licensed with one click."
+        />
         <link rel="canonical" href="https://www.didactikmedia.com/" />
       </Helmet>
-      {/* Hero Section */}
+
+      {/* ── Hero ── */}
       <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="py-4 md:py-8 lg:py-12 bg-gradient-to-b from-white to-bg-alt flex items-center"
+        className="pt-10 pb-20 md:pt-16 md:pb-32 bg-gradient-to-b from-white to-bg-alt flex items-center"
       >
-        <div className="container relative flex items-start">
-          <div className="flex-1 max-w-full md:max-w-2xl lg:max-w-3xl relative z-10">
+        <div className="container relative flex items-start min-h-[80vh]">
+          <div className="flex-1 max-w-2xl lg:max-w-3xl relative z-10">
+            <motion.p
+              variants={itemVariants}
+              className="text-sm sm:text-base font-semibold text-secondary mb-4"
+            >
+              Preserve. Discover. Monetize.
+            </motion.p>
+
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-serif font-bold mb-4 md:mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight"
             >
-              Securing <br />
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text">
-                Africa's Story.
+              The Operating System for{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                African Creative Memory.
               </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-3 md:mb-4 max-w-full md:max-w-3xl leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
             >
-              The operating system for Africa's audiovisual heritage. We
-              preserve, catalog, and activate the continent's film and broadcast
-              archives with AI-powered infrastructure - building essential
-              systems for the creative economy.
+              Africa's filmmakers and producers sit on thousands of hours of
+              great stories. Broadcasters like Showmax and Amazon Prime are
+              actively looking for them. We connect both — directly, fairly,
+              and at scale.
             </motion.p>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-xs sm:text-sm text-gray-500 mb-6 md:mb-8 font-semibold italic"
-            >
-              Powering archival infrastructure for:
-            </motion.p>
-
-            <motion.div variants={itemVariants} className="mb-6 md:mb-8 w-full">
-              <LogoMarquee />
-            </motion.div>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 mb-8 md:mb-10"
+              className="flex flex-wrap gap-4 mb-10"
             >
-              <Link to="/our-work" className="cta-button">
-                Learn About Our Work
+              <Link to="/waitlist" className="cta-button">
+                Filmmaker Waitlist
+              </Link>
+              <Link
+                to="/for-broadcasters"
+                className="inline-flex items-center px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Broadcaster Waitlist
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-primary hover:text-primary transition-colors"
+              >
+                Talk to Us
               </Link>
             </motion.div>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-6 sm:gap-8 md:gap-12 pt-6 md:pt-8 border-t border-gray-200"
+              className="flex flex-wrap gap-8 md:gap-14 pt-8 border-t border-gray-200"
             >
               <div>
-                <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-1 md:mb-2">
-                  100+
-                </div>
-                <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
-                  Hours Preserved
-                </div>
+                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">150+</div>
+                <div className="text-sm font-medium text-gray-500">Films Waitlisted</div>
               </div>
               <div>
-                <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-1 md:mb-2">
-                  15+
-                </div>
-                <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
-                  Institutional Clients
-                </div>
+                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">15+</div>
+                <div className="text-sm font-medium text-gray-500">Institutional Clients</div>
               </div>
               <div>
-                <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-1 md:mb-2">
-                  100%
-                </div>
-                <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
-                  Broadcast-Ready
-                </div>
+                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">MVP</div>
+                <div className="text-sm font-medium text-gray-500">Build Complete</div>
               </div>
             </motion.div>
           </div>
+          
           <motion.div
             initial={{ opacity: 0, x: 50, rotate: 5 }}
-            animate={{ opacity: 0.12, x: 0, rotate: 0 }}
+            animate={{ opacity: 0.2, x: 0, rotate: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="absolute inset-0 lg:inset-auto lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-0 lg:w-[60%] flex items-center justify-center lg:justify-end pointer-events-none"
+            className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block z-0 w-[60%]"
           >
             <motion.div
               animate={{
@@ -138,49 +124,242 @@ export default function Home() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="w-[80%] max-w-xs sm:max-w-sm md:max-w-md lg:w-full lg:max-w-none"
             >
               <ImageWithSkeleton
                 src="/images/film-reel-hero.webp"
                 alt="Vintage film reel artistic illustration"
-                className="w-full h-auto object-contain opacity-100 lg:opacity-100 drop-shadow-2xl lg:ml-auto"
+                className="w-full h-auto object-contain drop-shadow-2xl ml-auto"
               />
             </motion.div>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Value Propositions */}
-      <section className="py-3 md:py-4 lg:py-6 bg-white">
+      {/* ── Logo Marquee ── */}
+      <section className="py-6 bg-white border-y border-gray-100">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {values.map((value, index) => (
+          <p className="text-sm font-medium text-gray-500 text-center mb-4">
+            Powering archival infrastructure for
+          </p>
+          <LogoMarquee />
+        </div>
+      </section>
+
+      {/* ── The Problem ── */}
+      <section className="py-16 md:py-24 bg-gray-950 text-white">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 leading-tight">
+              A $6.4B industry with{" "}
+              <span className="bg-gradient-to-r from-secondary to-blue-400 bg-clip-text text-transparent">
+                no pipeline.
+              </span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {[
+                {
+                  label: "The Maker",
+                  body: "Creates the film. Most don't archive — they see no immediate return. Without access to 'godfathers', their work never reaches buyers.",
+                },
+                {
+                  label: "The Buyer",
+                  body: "Needs fresh content. Can't find anyone outside their personal network. Showmax, Amazon Prime, and local broadcasters are actively searching.",
+                },
+                {
+                  label: "The Cost",
+                  body: "Thousands of hours of great stories sit on hard drives. No one gets paid. Over 70% of pre-2000 Nigerian television is already gone — forever.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="border border-gray-800 rounded-xl p-6 hover:border-secondary/40 transition-colors"
+                >
+                  <h3 className="text-lg font-bold text-secondary mb-3">{item.label}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── One Platform. Three Moves. ── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              One platform.{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Three moves.
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We solve both sides of the problem simultaneously — connecting
+              Africa's filmmakers directly with the broadcasters who need their stories.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                number: "01",
+                title: "Upload for Free. Store Forever.",
+                description:
+                  "Filmmakers upload for free. We store it safely. They always retain full access to their master files — and together we build the cloud-based national film archive Nigeria has never had.",
+                bgClass: "bg-primary text-white",
+                numClass: "text-white/30",
+                bodyClass: "text-white/70",
+              },
+              {
+                number: "02",
+                title: "AI Tags So You're Found.",
+                description:
+                  "Our AI tags content with culturally-informed metadata — searchable by themes, people, location, and language. Broadcasters find exactly what they need, instantly.",
+                bgClass: "bg-gray-900 text-white",
+                numClass: "text-white/20",
+                bodyClass: "text-white/70",
+              },
+              {
+                number: "03",
+                title: "Broadcasters Find and License.",
+                description:
+                  "Broadcasters license with one click. No gatekeepers. No hidden fees. Just direct, transparent deals — and creators keep the lion's share.",
+                bgClass: "bg-gray-100 text-gray-900",
+                numClass: "text-gray-300",
+                bodyClass: "text-gray-600",
+              },
+            ].map((move, index) => (
               <motion.div
-                key={value.title}
+                key={move.number}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                className="card hover:border-primary/20"
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className={`rounded-2xl p-8 ${move.bgClass}`}
               >
-                <h3 className="text-2xl font-serif font-semibold mb-4 text-primary">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600">{value.description}</p>
+                <div className={`text-5xl font-bold mb-4 ${move.numClass}`}>{move.number}.</div>
+                <h3 className="text-xl font-bold mb-3">{move.title}</h3>
+                <p className={`leading-relaxed text-sm md:text-base ${move.bodyClass}`}>{move.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Sustainability Strip */}
+      {/* ── Traction ── */}
+      <section className="py-16 md:py-24 bg-bg-alt">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+              Traction
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              The proof is already here.
+            </h2>
+            <p className="text-lg text-gray-600 max-w-xl mx-auto">
+              We didn't wait to validate. We built, served clients, and the market responded.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {[
+              { stat: "150+", label: "Films Waitlisted & Ready to Upload" },
+              { stat: "15+", label: "Institutional Clients Served" },
+              { stat: "MVP", label: "Build Complete & Live" },
+              { stat: "2", label: "Active Institutional Partnerships" },
+            ].map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="text-center bg-white rounded-xl p-5 md:p-6 shadow-sm border border-gray-100"
+              >
+                <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">{item.stat}</div>
+                <div className="text-xs text-gray-500 leading-snug">{item.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Dual CTA ── */}
+      <section className="py-16 md:py-24 bg-gray-950 text-white">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-primary rounded-2xl p-8 md:p-10 flex flex-col"
+            >
+              <span className="text-sm font-semibold text-white/60 mb-4">For Investors</span>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+                Ready to back Africa's creative infrastructure?
+              </h3>
+              <p className="text-white/70 leading-relaxed mb-8 flex-1">
+                We're building the pipeline that a $6.4B industry has never had. If you want to be part of it, let's talk.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-primary font-bold py-3 px-6 rounded-lg text-center hover:bg-gray-100 transition-colors"
+              >
+                Get In Touch
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-gray-800 rounded-2xl p-8 md:p-10 flex flex-col border border-gray-700"
+            >
+              <span className="text-sm font-semibold text-secondary mb-4">For Filmmakers & Producers</span>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+                Your film deserves to be found.
+              </h3>
+              <p className="text-white/70 leading-relaxed mb-8 flex-1">
+                150+ films are already on the waitlist. Secure your place in Africa's first open licensing marketplace — free to upload, transparent on every deal.
+              </p>
+              <Link
+                to="/waitlist"
+                className="inline-block bg-secondary text-white font-bold py-3 px-6 rounded-lg text-center hover:bg-secondary/90 transition-colors"
+              >
+                Join the Waitlist
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sustainability Strip ── */}
       <SustainabilityStrip />
 
-      {/* Featured In The News */}
-      <section className="py-4 md:py-8 lg:py-12 bg-bg-alt">
+      {/* ── Featured In The News ── */}
+      <section className="py-12 md:py-20 bg-bg-alt">
         <div className="container">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            {/* Image Side */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -198,7 +377,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Content Side */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -207,25 +385,20 @@ export default function Home() {
               className="w-full lg:w-6/12 lg:ml-auto"
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-semibold tracking-wide uppercase">
+                <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-semibold">
                   Featured Story
                 </span>
                 <span className="text-gray-400 text-sm">|</span>
-                <span className="text-gray-500 font-serif italic">
-                  The Guardian
-                </span>
+                <span className="text-gray-500 font-serif italic">The Guardian</span>
               </div>
-
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-primary leading-tight">
                 Preserving Nigeria's Cultural Legacy
               </h2>
-
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Read about our vision and impact in this feature by The
-                Guardian, highlighting Didactik Media's commitment to securing
-                the nation's audiovisual heritage for future generations.
+                Read about our vision and impact in this feature by The Guardian,
+                highlighting how Didactik Media is saving the nation's
+                film history before it's lost.
               </p>
-
               <a
                 href="https://guardian.ng/art/preserving-nigerias-cultural-legacy-vision-impact-of-didactik-media/"
                 target="_blank"
@@ -233,23 +406,39 @@ export default function Home() {
                 className="cta-button inline-flex items-center gap-2"
               >
                 Read Full Article
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Vision Closing ── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <blockquote className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 leading-snug mb-6">
+              "Let's build the archive that future generations will thank us for."
+            </blockquote>
+            <p className="text-gray-500 text-lg mb-10">— Emem Attah, Founder & CEO</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact" className="cta-button">Talk to Us</Link>
+              <Link
+                to="/waitlist"
+                className="inline-flex items-center px-6 py-3 border-2 border-secondary text-secondary font-semibold rounded-lg hover:bg-secondary hover:text-white transition-all"
+              >
+                Join the Waitlist
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

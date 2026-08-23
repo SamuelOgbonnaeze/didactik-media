@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
       </Helmet>
 
       {/* Header */}
-      <section className="py-4 md:py-8 lg:py-12 bg-gradient-to-b from-bg-alt to-white">
+      <section className="pt-4 pb-12 md:pt-8 md:pb-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

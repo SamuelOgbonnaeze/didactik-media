@@ -8,6 +8,8 @@ import Team from "./pages/Team";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import ProducerWaitlist from "./pages/ProducerWaitlist";
+import BroadcasterWaitlist from "./pages/BroadcasterWaitlist";
 
 function MarketingLayout() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/waitlist" element={<ProducerWaitlist />} />
+        <Route path="/for-broadcasters" element={<BroadcasterWaitlist />} />
       </Route>
     </Routes>
   );

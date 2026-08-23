@@ -12,7 +12,7 @@ export default function Team() {
         <link rel="canonical" href="https://www.didactikmedia.com/team" />
       </Helmet>
       {/* Header */}
-      <section className="py-4 md:py-16 bg-gradient-to-b from-bg-alt to-white">
+      <section className="pt-4 pb-12 md:pt-8 md:pb-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -87,8 +87,7 @@ export default function Team() {
               Join Our Mission
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              We're always looking for passionate individuals who share our
-              commitment to preserving Africa's cultural heritage.
+              We're always looking for people who want to help save Africa's film history.
             </p>
             <Link to="/contact" className="cta-button">
               Get In Touch

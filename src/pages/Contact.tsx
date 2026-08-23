@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
-import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet-async";
 import {
   FaLinkedin,
@@ -21,9 +20,7 @@ export default function Contact() {
   });
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -32,32 +29,29 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
+    const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_CONTACT_URL;
+
     try {
-      // Send email using EmailJS
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_organization: formData.organization,
-          from_email: formData.email,
+      await fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          name: formData.name,
+          organization: formData.organization,
+          email: formData.email,
           message: formData.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
+        }).toString(),
+      });
 
       setIsSubmitting(false);
       setSubmitStatus("success");
       setFormData({ name: "", organization: "", email: "", message: "", consented: false });
-
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
-      console.error("Failed to send email:", error);
+      console.error("Form submission error:", error);
       setIsSubmitting(false);
       setSubmitStatus("error");
-
-      // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
     }
   };
@@ -66,12 +60,8 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
-    const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
-    
-    setFormData({
-      ...formData,
-      [name]: val,
-    });
+    const val = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+    setFormData({ ...formData, [name]: val });
   };
 
   return (
@@ -81,8 +71,9 @@ export default function Contact() {
         <meta name="description" content="Reach out to Didactik Media to discuss archival partnerships, digitization projects, and collaboration." />
         <link rel="canonical" href="https://www.didactikmedia.com/contact" />
       </Helmet>
+
       {/* Header */}
-      <section className="py-4 md:py-8 lg:py-12 bg-gradient-to-b from-bg-alt to-white">
+      <section className="pt-4 pb-12 md:pt-8 md:pb-16 bg-gradient-to-b from-bg-alt to-white">
         <div className="container">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -105,15 +96,10 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-4">
-                Get In Touch
-              </h2>
+              <h2 className="text-3xl font-serif font-bold mb-4">Get In Touch</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-1"
-                  >
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">
                     Name *
                   </label>
                   <input
@@ -128,10 +114,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="organization"
-                    className="block text-sm font-medium mb-1"
-                  >
+                  <label htmlFor="organization" className="block text-sm font-medium mb-1">
                     Organization *
                   </label>
                   <input
@@ -146,10 +129,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-1"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">
                     Email *
                   </label>
                   <input
@@ -164,10 +144,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium mb-1"
-                  >
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">
                     Message *
                   </label>
                   <textarea
@@ -192,27 +169,26 @@ export default function Contact() {
                     className="mt-1 h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
                   />
                   <label htmlFor="consented" className="text-sm text-gray-700 cursor-pointer">
-                    I consent to Didactik Media processing my information to respond to my inquiry, 
-                    in accordance with the{' '}
-                    <button 
-                      type="button" 
+                    I consent to Didactik Media processing my information to respond to my inquiry,
+                    in accordance with the{" "}
+                    <button
+                      type="button"
                       onClick={() => setIsDrawerOpen(true)}
                       className="text-secondary hover:underline font-medium"
                     >
                       Privacy Policy
-                    </button>.
+                    </button>
+                    .
                   </label>
                 </div>
 
-                <motion.button
+                <button
                   type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting || !formData.consented}
                   className="w-full cta-button disabled:opacity-50 disabled:cursor-not-allowed mt-2"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                </motion.button>
+                </button>
 
                 {submitStatus === "success" && (
                   <motion.p
@@ -230,8 +206,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-red-600 text-center"
                   >
-                    Failed to send message. Please try again or email us
-                    directly.
+                    Failed to send message. Please try again or email us directly.
                   </motion.p>
                 )}
               </form>
@@ -244,10 +219,7 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-serif font-bold mb-4">
-                Contact Information
-              </h2>
-
+              <h2 className="text-3xl font-serif font-bold mb-4">Contact Information</h2>
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2 flex items-center gap-2">
@@ -255,10 +227,10 @@ export default function Contact() {
                     Email
                   </h3>
                   <a
-                    href="mailto:admin@didactikmedia.com"
+                    href="mailto:onboarding@didactikmedia.com"
                     className="mt-1 text-gray-500 hover:text-primary transition-colors"
                   >
-                    admin@didactikmedia.com
+                    onboarding@didactikmedia.com
                   </a>
                 </div>
 
