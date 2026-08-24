@@ -64,7 +64,7 @@ export default function Home() {
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
             >
               Africa's filmmakers and producers sit on thousands of hours of
-              great stories. Local broadcasters and international streaming
+              untapped stories. Local broadcasters and international streaming
               services are actively onboarding new content. We connect both —
               directly, fairly, and at scale.
             </motion.p>

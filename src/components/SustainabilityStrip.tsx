@@ -22,30 +22,14 @@ export default function SustainabilityStrip() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Built to Last. Open to the World.
+            Nigeria's first cloud-based digital media archive.
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-            We are building Nigeria's first cloud-based digital archive —
-            preserving film and broadcast heritage in cold storage that lasts
-            over 50 years, and making it accessible to filmmakers, researchers,
-            and institutions across the globe.
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+            We are building Nigeria's first cloud-based digital archive — preserving film and
+            broadcast heritage using cloud technology, making it accessible to filmmakers,
+            researchers, and institutions around the world, for generations to come.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-white p-2 md:p-4 lg:p-6 rounded-lg shadow-md">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2">90%</div>
-              <p className="text-xs md:text-sm lg:text-base text-gray-600">Carbon Reduction vs Physical Vaults</p>
-            </div>
-            <div className="bg-white p-2 md:p-4 lg:p-6 rounded-lg shadow-md">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2">LTO</div>
-              <p className="text-xs md:text-sm lg:text-base text-gray-600">Cold Storage Technology</p>
-            </div>
-            <div className="bg-white p-2 md:p-4 lg:p-6 rounded-lg shadow-md">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2">50+</div>
-              <p className="text-xs md:text-sm lg:text-base text-gray-600">Years Archive Lifespan</p>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
