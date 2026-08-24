@@ -44,7 +44,7 @@ const benefits = [
     icon: "🤝",
     title: "Direct Deals. No Gatekeepers.",
     description:
-      "Broadcasters like Showmax and Amazon Prime license directly from our platform — no middlemen, no 'thank you' fees. You keep the lion's share.",
+      "Local and international broadcasters license directly from our platform — no middlemen, no 'thank you' fees. You keep the lion's share.",
   },
   {
     icon: "🔒",
@@ -103,7 +103,7 @@ export default function ProducerWaitlist() {
         <title>Producer Waitlist — Didactik Media</title>
         <meta
           name="description"
-          content="Join 150+ filmmakers on the Didactik Media waitlist. Free uploads, AI discoverability, direct licensing to Showmax, Amazon Prime and more. No gatekeepers."
+          content="Join 150+ filmmakers on the Didactik Media waitlist. Free uploads, AI discoverability, direct licensing to local and international broadcasters. No gatekeepers."
         />
         <link rel="canonical" href="https://www.didactikmedia.com/waitlist" />
       </Helmet>

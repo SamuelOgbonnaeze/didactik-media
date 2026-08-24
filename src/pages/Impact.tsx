@@ -58,7 +58,7 @@ export default function Impact() {
               </h2>
               <div className="space-y-3 md:space-y-4 text-base md:text-lg text-gray-700 leading-normal md:leading-relaxed">
                 <p>Turning dead storage into revenue — reviving billions in creative IP that currently sits idle on hard drives.</p>
-                <p>Enabling licensing, syndication, and new productions on global platforms like Netflix, Amazon Prime, and Showmax.</p>
+                <p>Enabling licensing, syndication, and new productions on local and international streaming platforms.</p>
                 <p>Professionalizing the creative industry's assets — producers currently lose 15–30% of potential revenue from inaccessible archives.</p>
               </div>
             </motion.div>

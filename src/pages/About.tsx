@@ -126,7 +126,7 @@ export default function About() {
                 We started as Nigeria's premier archival and digitization service — working
                 with broadcasters, production companies, and cultural institutions to rescue,
                 preserve, and catalog their archives. With 15+ institutional clients and
-                partnerships with Showmax, Amazon Prime Video, and national bodies like the
+                partnerships with local broadcasters, international streaming services, and national bodies like the
                 National Council for Arts & Culture, we validated both the need and the model.
               </p>
               <p>

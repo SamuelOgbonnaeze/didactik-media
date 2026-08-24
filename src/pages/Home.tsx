@@ -64,9 +64,9 @@ export default function Home() {
               className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
             >
               Africa's filmmakers and producers sit on thousands of hours of
-              great stories. Broadcasters like Showmax and Amazon Prime are
-              actively looking for them. We connect both — directly, fairly,
-              and at scale.
+              great stories. Local broadcasters and international streaming
+              services are actively onboarding new content. We connect both —
+              directly, fairly, and at scale.
             </motion.p>
 
             <motion.div
@@ -90,23 +90,6 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-8 md:gap-14 pt-8 border-t border-gray-200"
-            >
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">150+</div>
-                <div className="text-sm font-medium text-gray-500">Films Waitlisted</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">15+</div>
-                <div className="text-sm font-medium text-gray-500">Institutional Clients</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">MVP</div>
-                <div className="text-sm font-medium text-gray-500">Build Complete</div>
-              </div>
-            </motion.div>
           </div>
           
           <motion.div
@@ -139,9 +122,45 @@ export default function Home() {
       <section className="py-6 bg-white border-y border-gray-100">
         <div className="container">
           <p className="text-sm font-medium text-gray-500 text-center mb-4">
-            Powering archival infrastructure for
+            Providing archival services to
           </p>
           <LogoMarquee />
+        </div>
+      </section>
+
+      {/* ── Preservation / Knowledge / Access ── */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                title: "Preservation",
+                description: "Rescue and digitize at-risk film & broadcast archives before they are gone for good.",
+              },
+              {
+                title: "Knowledge",
+                description: "Apply intelligent, culturally-informed cataloging so Africa's stories are searchable and findable.",
+              },
+              {
+                title: "Access",
+                description: "Enable discovery, distribution, and new revenue streams for creators and institutions alike.",
+              },
+            ].map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                className="card hover:border-primary/20"
+              >
+                <h3 className="text-2xl font-serif font-semibold mb-4 text-primary">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -165,11 +184,11 @@ export default function Home() {
               {[
                 {
                   label: "The Maker",
-                  body: "Creates the film. Most don't archive — they see no immediate return. Without access to 'godfathers', their work never reaches buyers.",
+                  body: "Creates the film. Most don't archive — they see no immediate return. Without industry access, their work never reaches buyers.",
                 },
                 {
                   label: "The Buyer",
-                  body: "Needs fresh content. Can't find anyone outside their personal network. Showmax, Amazon Prime, and local broadcasters are actively searching.",
+                  body: "Needs fresh content. Can't find anyone outside their personal network. Local broadcasters and international streaming services are actively searching.",
                 },
                 {
                   label: "The Cost",
@@ -200,9 +219,9 @@ export default function Home() {
             className="text-center mb-14"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              One platform.{" "}
+              Earning{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Three moves.
+                and Preserving.
               </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -235,7 +254,7 @@ export default function Home() {
                 number: "03",
                 title: "Broadcasters Find and License.",
                 description:
-                  "Broadcasters license with one click. No gatekeepers. No hidden fees. Just direct, transparent deals — and creators keep the lion's share.",
+                  "Broadcasters and streaming services license with just one click. No gatekeepers. No hidden fees. Just direct, transparent deals — and creators keep the lion's share.",
                 bgClass: "bg-gray-100 text-gray-900",
                 numClass: "text-gray-300",
                 bodyClass: "text-gray-600",

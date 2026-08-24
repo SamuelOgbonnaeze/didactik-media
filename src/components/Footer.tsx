@@ -3,6 +3,7 @@ import {
   FaInstagram,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaPhone,
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -32,6 +33,12 @@ export default function Footer() {
                 >
                   <FaEnvelope className="text-secondary" />
                   onboarding@didactikmedia.com
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <FaPhone className="text-secondary" />
+                <a href="tel:+2349155002840" className="hover:text-secondary transition-colors">
+                  09155002840
                 </a>
               </p>
               <p className="flex items-center gap-2">
